@@ -22,3 +22,38 @@ walk_vel_offsets = [0X8, 0X8, 0X190, 0X19C]
 max_vel_offsets = [0X8, 0X8, 0X190, 0X1B0]
 flip_gravity_offsets = [0X8, 0X8, 0X190, 0X148]
 clock_offsets = [0XE8, 0XE0, 0X328]
+
+# New graphics Halo 1
+primary_offsets = [0X28A]
+fire_rate_offsets = [0X23A]
+shield_offsets = [0XA0]
+plasma_fire_rate_offsets = [0X204]
+plasma_ammo_offsets = [0X208]
+trig_offsets = [0X22C]  # 01C38880
+shotgun_trig_offsets = [0X280]
+plasma_pistol_offsets = [0X144, 0XB5]
+
+# These fucking sucked to find Halo 1
+noclip_offsets = [0X4D8]
+melee1_offsets = [0X512]
+melee2_offsets = [0X513]
+player_speed_offsets = [0X10C]
+bullet_spread_offsets = [0X1B]
+bullet_spread_offsets_2 = [0X1F]  # 01C38880/0x434800c8
+scared = [0X34]  # 01C40480
+pause = [0X38]  # 01C40480
+animation = [0x0]  # 02D9CD90
+
+# Old graphics this game is janky as fuck Halo 1
+primary_offsets2 = [0X28A]  # 01C38900
+fire_rate_offsets2 = [0X23A]
+plasma_ammo_offsets2 = []
+noclip_offsets2 = [0X4D8]
+X_offsets = [0X1C]  # 01C35950
+Y_offsets = [0X18]  # 01C35950
+Z_offsets = [0X20]
+shield = [0X20, 0XB8, 0XC8, 0X998, 0X10, 0XA0]
+
+# Halo 3 offsets :)
+unsc_pistol_offsets = [0X23A]
+halo_3_shield_offsets = []
