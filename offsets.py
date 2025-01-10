@@ -49,9 +49,9 @@ primary_offsets2 = [0X28A]  # 01C38900
 fire_rate_offsets2 = [0X23A]
 plasma_ammo_offsets2 = []
 noclip_offsets2 = [0X4D8]
-X_offsets = [0X1C]  # 01C35950
-Y_offsets = [0X18]  # 01C35950
-Z_offsets = [0X20]
+h_X_offsets = [0X1C]  # 01C35950
+h_Y_offsets = [0X18]  # 01C35950
+h_Z_offsets = [0X20]
 shield = [0X20, 0XB8, 0XC8, 0X998, 0X10, 0XA0]
 
 # Halo 3 offsets :)
