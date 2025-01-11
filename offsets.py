@@ -9,6 +9,10 @@ walk_offsets = [0X120]  # 003839D8
 z_offsets = [0X10, 0X44]  # 003839D8
 y_offsets = [0X0, 0X40]  # 00386AE0
 x_offsets = [0X10, 0X48]  # 003839D8
+raz_lives = [0X58, 0XF4, 0X0, 0X310, 0X0, 0X28C]  # 0038CBB8
+player_size_1 = [0X4, 0X6E8]  # 00383834
+player_size_2 = [0X4, 0X6E4]  # 00383838
+player_size_3 = [0X4, 0X6E0]  # 00383834
 
 # Pycho 2 offsets
 laser_offsets = [0x8, 0x8, 0x270, 0xE0, 0x8, 0x104]
