@@ -1,5 +1,4 @@
 import pygame
-
 from Pycho1 import *
 
 # GUI
@@ -43,11 +42,15 @@ notebook.pack(expand=True, fill='both')
 tab1 = ttk.Frame(notebook)
 tab2 = ttk.Frame(notebook)
 tab3 = ttk.Frame(notebook)
+tab4 = ttk.Frame(notebook)
+
 
 # tabs to the notebook
 notebook.add(tab1, text='Psychonauts 1')
 notebook.add(tab2, text='Psychonauts 2')
 notebook.add(tab3, text='Dev/Info')
+notebook.add(tab4, text='BioShock Infinite')
+
 
 # first tab
 button1_tab1 = tk.Button(tab1, text="Health", bg='black', fg='white', cursor="cross", command=multi_run_god)
@@ -97,6 +100,17 @@ button7_tab2.pack(pady=10)
 # three tab
 label1_tab4 = tk.Label(tab3, text="Hello and thank you for using my software.")
 label1_tab4.pack(pady=10)
+
+# tab four
+button1_tab4 = tk.Button(tab4, text="Pistol Ammo", bg='black', fg='white', cursor="cross", command=multi_bio_pistol)
+button1_tab4.pack(pady=10)
+
+button2_tab4 = tk.Button(tab4, text="Money", bg='black', fg='white', cursor="cross", command=multi_bio_mon)
+button2_tab4.pack(pady=10)
+
+button3_tab4 = tk.Button(tab4, text="Fuck Gravity", bg='black', fg='white', cursor="cross",
+                         command=multi_bio_fly)
+button3_tab4.pack(pady=10)
 
 # Clock
 time_label = tk.Label(tab3, font=("Arial", 10), fg="Black", bg="Red")
