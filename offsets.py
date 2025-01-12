@@ -61,3 +61,8 @@ shield = [0X20, 0XB8, 0XC8, 0X998, 0X10, 0XA0]
 # Halo 3 offsets :)
 unsc_pistol_offsets = [0X23A]
 halo_3_shield_offsets = []
+
+# Bioshock infinte
+fly_offs = [0X74, 0XF0]  # 00358660
+money_offs = [0X398, 0X50C]  # 00FA2B98
+pistol_ammo_offs = [0XC, 0XD8, 0X7C4]  # 00F6648C
