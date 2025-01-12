@@ -18,7 +18,6 @@ from gui import *
 
 colorama.init()
 
-
 while True:
     password = input(Fore.RED + Back.BLACK + Style.BRIGHT + "Enter password ")
     if password == "115":
@@ -27,18 +26,24 @@ while True:
     else:
         print(Fore.RED + Back.BLACK + Style.BRIGHT + "Try again retard")
 
-print("Games avaliable, Psychonauts, Psychonauts 2, Halo 1")
+print("Games avaliable, Psychonauts, Psychonauts 2, Halo 1, Bioshock infinite")
 
 game = input(Fore.RED + Back.BLACK + Style.BRIGHT + "\nEnter game title: ")
 if game == "Psychonauts":
     mem = Pymem("Psychonauts")
     module1 = module_from_name(mem.process_handle, "Psychonauts.exe").lpBaseOfDll
+
 elif game == "Psychonauts 2":
     mem = Pymem("Psychonauts2-Win64-Shipping")
     module = module_from_name(mem.process_handle, "Psychonauts2-Win64-Shipping.exe").lpBaseOfDll
+
 elif game == "Halo 1":
     mem = Pymem("MCC-Win64-Shipping")
     module2 = module_from_name(mem.process_handle, "halo1.dll").lpBaseOfDll
+
+elif game == "Bioshock infinite":
+    mem = Pymem("BioShockInfinite.exe")
+    module3 = module_from_name(mem.process_handle, "BioShockInfinite.exe").lpBaseOfDll
 
 
 def getpointeraddress(base, offsets):
@@ -105,6 +110,7 @@ def releasekey(hexkeycode):
     ii_.ki = KeyBdInput(0, hexkeycode, 0x0008 | 0x0002, 0, ctypes.pointer(extra))
     x = input(ctypes.c_ulong(1), ii_)
     ctypes.windll.user32.SendInput(1, ctypes.pointer(x), ctypes.sizeof(x))
+
 
 # Threads for pycho 1
 
@@ -187,8 +193,24 @@ def multi_run_stop():
     new_thread.start()
 
 
-# funcs for pycho 1
+# Threads for bioshock inf
 
+def multi_bio_fly():
+    new_thread = Thread(target=bio_fly, daemon=True)
+    new_thread.start()
+
+
+def multi_bio_mon():
+    new_thread = Thread(target=bio_mon, daemon=True)
+    new_thread.start()
+
+
+def multi_bio_pistol():
+    new_thread = Thread(target=bio_pistol, daemon=True)
+    new_thread.start()
+
+
+# funcs for pycho 1
 
 def god_hack():
     addr = getpointeraddress(module1 + 0x0038CBB8, health1_offsets)
@@ -411,3 +433,40 @@ def clock_stop():
             mem.write_int(addr1, 0x3f800000)
             break
 
+
+# funcs for bioshock inf
+
+def bio_fly():
+    addr1 = getpointeraddress(module3 + 0x00358660, fly_offs)
+    while 1:
+        try:
+            mem.write_int(addr1, 0x43fa0000)
+        except pymem.exception.MemoryWriteError as e:
+            print(f"Error writing memory: {e}")
+        if keyboard.is_pressed("F1"):
+            mem.write_int(addr1, 0x0)
+            break
+
+
+def bio_pistol():
+    addr1 = getpointeraddress(module3 + 0x00F6648C, pistol_ammo_offs)
+    while 1:
+        try:
+            mem.write_int(addr1, 0x0000000c)
+        except pymem.exception.MemoryWriteError as e:
+            print(f"Error writing memory: {e}")
+        if keyboard.is_pressed("F1"):
+            mem.write_int(addr1, 0x0000000c)
+            break
+
+
+def bio_mon():
+    addr1 = getpointeraddress(module3 + 0x00FA2B98, money_offs)
+    while 1:
+        try:
+            mem.write_int(addr1, 0x00002328)
+        except pymem.exception.MemoryWriteError as e:
+            print(f"Error writing memory: {e}")
+        if keyboard.is_pressed("F1"):
+            mem.write_int(addr1, 0x00002328)
+            break
