@@ -26,7 +26,7 @@ while True:
     else:
         print(Fore.RED + Back.BLACK + Style.BRIGHT + "Try again retard")
 
-print("Games avaliable, Psychonauts, Psychonauts 2, Halo 1, Bioshock infinite")
+print("Games available, Psychonauts, Psychonauts 2, Halo 1, Bioshock infinite")
 
 game = input(Fore.RED + Back.BLACK + Style.BRIGHT + "\nEnter game title: ")
 if game == "Psychonauts":
