@@ -66,3 +66,8 @@ halo_3_shield_offsets = []
 fly_offs = [0X74, 0XF0]  # 00358660
 money_offs = [0X398, 0X50C]  # 00FA2B98
 pistol_ammo_offs = [0XC, 0XD8, 0X7C4]  # 00F6648C
+
+# Isaac // isaac-ng.exe
+bomb_offsets = [0X1C0, 0X0, 0X114, 0X8C, 0X4, 0X0, 0XB70]  # 0021E508
+isaac_health_offsets = [0XBC, 0X50, 0X114, 0X8C, 0X4, 0X0, 0XB54]  # 0021E508
+isaac_fire_rate_offsets = [0X5CC, 0XB8, 0XCD0]  # 0021A1F4
