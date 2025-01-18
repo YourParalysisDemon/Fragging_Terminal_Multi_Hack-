@@ -16,7 +16,9 @@ from colorama import Fore, Back, Style
 from offsets import *
 from gui import *
 
+
 colorama.init()
+
 
 while True:
     password = input(Fore.RED + Back.BLACK + Style.BRIGHT + "Enter password ")
@@ -26,24 +28,61 @@ while True:
     else:
         print(Fore.RED + Back.BLACK + Style.BRIGHT + "Try again retard")
 
-print("Games available, Psychonauts, Psychonauts 2, Halo 1, Bioshock infinite")
 
-game = input(Fore.RED + Back.BLACK + Style.BRIGHT + "\nEnter game title: ")
-if game == "Psychonauts":
-    mem = Pymem("Psychonauts")
-    module1 = module_from_name(mem.process_handle, "Psychonauts.exe").lpBaseOfDll
+game_list = ["Games Available",
+             "● Psychonauts",
+             "● Psychonauts 2",
+             "● Halo 1",
+             "● Bioshock infinite",
+             "● The binding of isaac"]
+for game_list in game_list:
+    print(game_list)
 
-elif game == "Psychonauts 2":
-    mem = Pymem("Psychonauts2-Win64-Shipping")
-    module = module_from_name(mem.process_handle, "Psychonauts2-Win64-Shipping.exe").lpBaseOfDll
 
-elif game == "Halo 1":
-    mem = Pymem("MCC-Win64-Shipping")
-    module2 = module_from_name(mem.process_handle, "halo1.dll").lpBaseOfDll
+while True:
 
-elif game == "Bioshock infinite":
-    mem = Pymem("BioShockInfinite.exe")
-    module3 = module_from_name(mem.process_handle, "BioShockInfinite.exe").lpBaseOfDll
+    game = input(Fore.RED + Back.BLACK + Style.BRIGHT + "\nEnter game title: ")
+    if game == "Psychonauts":
+        mem = Pymem("Psychonauts")
+        module1 = module_from_name(mem.process_handle, "Psychonauts.exe").lpBaseOfDll
+        print("Game Found!")
+        break
+
+    elif game == "Psychonauts 2":
+        mem = Pymem("Psychonauts2-Win64-Shipping")
+        module = module_from_name(mem.process_handle, "Psychonauts2-Win64-Shipping.exe").lpBaseOfDll
+        print("Game Found!")
+        break
+
+    elif game == "Halo 1":
+        mem = Pymem("MCC-Win64-Shipping")
+        module2 = module_from_name(mem.process_handle, "halo1.dll").lpBaseOfDll
+        print("Game Found!")
+        break
+
+    elif game == "Bioshock infinite":
+        mem = Pymem("BioShockInfinite.exe")
+        module3 = module_from_name(mem.process_handle, "BioShockInfinite.exe").lpBaseOfDll
+        print("Game Found!")
+        break
+
+    elif game == "The binding of isaac":
+        mem = Pymem("isaac-ng")
+        module_isaac = module_from_name(mem.process_handle, "isaac-ng.exe").lpBaseOfDll
+        print("Game Found!")
+        break
+
+    else:
+        print(Fore.RED + Back.BLACK + Style.BRIGHT + "How fucking stupid are you???")
+
+
+print("""
+██╗░░██╗░█████╗░██╗░░░██╗███████╗  ███████╗██╗░░░██╗███╗░░██╗
+██║░░██║██╔══██╗██║░░░██║██╔════╝  ██╔════╝██║░░░██║████╗░██║
+███████║███████║╚██╗░██╔╝█████╗░░  █████╗░░██║░░░██║██╔██╗██║
+██╔══██║██╔══██║░╚████╔╝░██╔══╝░░  ██╔══╝░░██║░░░██║██║╚████║
+██║░░██║██║░░██║░░╚██╔╝░░███████╗  ██║░░░░░╚██████╔╝██║░╚███║
+╚═╝░░╚═╝╚═╝░░╚═╝░░░╚═╝░░░╚══════╝  ╚═╝░░░░░░╚═════╝░╚═╝░░╚══╝""")
 
 
 def getpointeraddress(base, offsets):
@@ -299,7 +338,22 @@ def multi_run_wall_pierce():
 def multi_run_plasma_pistol():
     new_thread = Thread(target=plasma_pistol, daemon=True)
     new_thread.start()
-    
+
+
+# Isaac threads
+def multi_isaac_health():
+    new_thread = Thread(target=isaac_health, daemon=True)
+    new_thread.start()
+
+
+def multi_isaac_bomb():
+    new_thread = Thread(target=isaac_bombs, daemon=True)
+    new_thread.start()
+
+
+def multi_isaac_fire():
+    new_thread = Thread(target=isaac_fire_rate, daemon=True)
+    new_thread.start()
 # funcs for pycho 1
 
 
@@ -561,6 +615,7 @@ def bio_mon():
         if keyboard.is_pressed("F1"):
             mem.write_int(addr1, 0x00002328)
             break
+
 
 # Halo 1 funcs
 
@@ -843,6 +898,43 @@ def plasma_pistol():
             mem.write_int(addr, 0x3f4ccccd)
             mem.write_int(addr2, 0x01050e03)
             mem.write_int(addr3, 0xFFFFFFFF)
+        except pymem.exception.MemoryWriteError as e:
+            print(f"Error writing memory: {e}")
+        if keyboard.is_pressed("F1"):
+            break
+
+
+# Isaac functions
+
+def isaac_health():
+    addr = getpointeraddress(module_isaac + 0x0021E3FC, isaac_health_offsets)
+    while 1:
+        try:
+            mem.write_int(addr, 0x00000006)
+        except pymem.exception.MemoryWriteError as e:
+            print(f"Error writing memory: {e}")
+        if keyboard.is_pressed("F1"):
+            break
+
+
+def isaac_bombs():
+    addr = getpointeraddress(module_isaac + 0x0021E508, bomb_offsets)
+    addr2 = getpointeraddress(module_isaac + 0x0021E598, bomb_timer_offsets)
+    while 1:
+        try:
+            mem.write_int(addr, 0x5)
+            mem.write_int(addr2, 0x0)
+        except pymem.exception.MemoryWriteError as e:
+            print(f"Error writing memory: {e}")
+        if keyboard.is_pressed("F1"):
+            break
+
+
+def isaac_fire_rate():
+    addr = getpointeraddress(module_isaac + 0x0021A1F4, isaac_fire_rate_offsets)
+    while 1:
+        try:
+            mem.write_int(addr, 0x0)
         except pymem.exception.MemoryWriteError as e:
             print(f"Error writing memory: {e}")
         if keyboard.is_pressed("F1"):
