@@ -1,4 +1,3 @@
-import pygame
 from Pycho1 import *
 
 # GUI
@@ -7,7 +6,7 @@ pygame.mixer_music.load("music/mod.mp3")
 pygame.mixer_music.play(1)
 
 root = tk.Tk()
-photo = tk.PhotoImage(file="back/snake.png")
+photo = tk.PhotoImage(file="back/155.png")
 root.wm_iconphoto(False, photo)
 root.attributes("-topmost", True)
 root.title("Fragging Terminal")
@@ -38,14 +37,14 @@ style.map("TNotebook.Tab",
 notebook = ttk.Notebook(root)
 notebook.pack(expand=True, fill='both')
 
-# frames for each tab
+# frames for each
 tab1 = ttk.Frame(notebook)
 tab2 = ttk.Frame(notebook)
 tab3 = ttk.Frame(notebook)
 tab4 = ttk.Frame(notebook)
 tab5 = ttk.Frame(notebook)
 tab6 = ttk.Frame(notebook)
-
+tab7 = ttk.Frame(notebook)
 
 # tabs to the notebook
 notebook.add(tab1, text='Psychonauts 1')
@@ -54,7 +53,7 @@ notebook.add(tab3, text='Dev/Info')
 notebook.add(tab4, text='BioShock Infinite')
 notebook.add(tab5, text='Halo 1 new')
 notebook.add(tab6, text='Halo 1 old')
-
+notebook.add(tab7, text='The Binding of Isaac')
 
 # first tab pycho 1
 button1_tab1 = tk.Button(tab1, text="Health", bg='black', fg='white', cursor="cross", command=multi_run_god)
@@ -170,6 +169,16 @@ button5_tab6.pack(pady=10)
 button5_tab6 = tk.Button(tab6, text="Stats", bg='black', fg='white', cursor="cross", command=multi_run_stats)
 button5_tab6.pack(pady=10)
 
+# isaac tab
+button1_tab7 = tk.Button(tab7, text="Health", bg='black', fg='white', cursor="cross", command=multi_isaac_health)
+button1_tab7.pack(pady=10)
+
+button2_tab7 = tk.Button(tab7, text="Bombs", bg='black', fg='white', cursor="cross", command=multi_isaac_bomb)
+button2_tab7.pack(pady=10)
+
+button3_tab7 = tk.Button(tab7, text="Fire rate", bg='black', fg='white', cursor="cross", command=multi_isaac_fire)
+button3_tab7.pack(pady=10)
+
 # Clock
 time_label = tk.Label(tab3, font=("Arial", 10), fg="Black", bg="Red")
 time_label.pack(pady=10)
@@ -194,8 +203,6 @@ def clock():
     root.after(1000, clock)
 
 
-clock()
-
 link1 = tab4 = tk.Label(tab3, text="Your Sleep Paralysis Demon", bg="black", fg="red", cursor="cross")
 link1.bind("<Button-1>", lambda e: callback("https://steamcommunity.com/profiles/76561198259829950/"))
 link1.pack(pady=10)
@@ -213,4 +220,5 @@ keyboard.add_hotkey("Z", multi_run_flip)
 keyboard.add_hotkey("-", multi_run_slow)
 keyboard.add_hotkey("+", multi_run_fast)
 keyboard.add_hotkey("9", multi_run_stop)
+clock()
 root.mainloop()
