@@ -27,6 +27,12 @@ max_vel_offsets = [0X8, 0X8, 0X190, 0X1B0]
 flip_gravity_offsets = [0X8, 0X8, 0X190, 0X148]
 clock_offsets = [0XE8, 0XE0, 0X328]
 
+# Bioshock infinte
+
+fly_offs = [0X74, 0XF0]  # 00358660
+money_offs = [0X398, 0X50C]  # 00FA2B98
+pistol_ammo_offs = [0XC, 0XD8, 0X7C4]  # 00F6648C
+
 # New graphics Halo 1
 primary_offsets = [0X28A]
 fire_rate_offsets = [0X23A]
@@ -53,21 +59,13 @@ primary_offsets2 = [0X28A]  # 01C38900
 fire_rate_offsets2 = [0X23A]
 plasma_ammo_offsets2 = []
 noclip_offsets2 = [0X4D8]
-h_X_offsets = [0X1C]  # 01C35950
-h_Y_offsets = [0X18]  # 01C35950
-h_Z_offsets = [0X20]
+X_offsets = [0X1C]  # 01C35950
+Y_offsets = [0X18]  # 01C35950
+Z_offsets = [0X20]
 shield = [0X20, 0XB8, 0XC8, 0X998, 0X10, 0XA0]
-
-# Halo 3 offsets :)
-unsc_pistol_offsets = [0X23A]
-halo_3_shield_offsets = []
-
-# Bioshock infinte
-fly_offs = [0X74, 0XF0]  # 00358660
-money_offs = [0X398, 0X50C]  # 00FA2B98
-pistol_ammo_offs = [0XC, 0XD8, 0X7C4]  # 00F6648C
 
 # Isaac // isaac-ng.exe
 bomb_offsets = [0X1C0, 0X0, 0X114, 0X8C, 0X4, 0X0, 0XB70]  # 0021E508
-isaac_health_offsets = [0XBC, 0X50, 0X114, 0X8C, 0X4, 0X0, 0XB54]  # 0021E508
+bomb_timer_offsets = [0X134, 0X0, 0X114, 0X14, 0X0, 0X7C, 0X4, 0X0, 0XCE4]  # 0021E598
+isaac_health_offsets = [0X220, 0x7C, 0X4, 0X8C, 0X8C, 0X4, 0X0, 0XB54]  # 0021E3FC
 isaac_fire_rate_offsets = [0X5CC, 0XB8, 0XCD0]  # 0021A1F4
