@@ -32,6 +32,7 @@ clock_offsets = [0XE8, 0XE0, 0X328]
 fly_offs = [0X74, 0XF0]  # 00358660
 money_offs = [0X398, 0X50C]  # 00FA2B98
 pistol_ammo_offs = [0XC, 0XD8, 0X7C4]  # 00F6648C
+salt_offs = [0X70, 0X510]  # 00F687F8
 
 # New graphics Halo 1
 primary_offsets = [0X28A]
