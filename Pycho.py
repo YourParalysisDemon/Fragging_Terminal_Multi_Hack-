@@ -56,13 +56,13 @@ while True:
 
     elif game == "Halo 1":
         mem = Pymem("MCC-Win64-Shipping")
-        module2 = module_from_name(mem.process_handle, "halo1.dll").lpBaseOfDll
+        module_halo = module_from_name(mem.process_handle, "halo1.dll").lpBaseOfDll
         print("Game Found!")
         break
 
     elif game == "Bioshock infinite":
         mem = Pymem("BioShockInfinite.exe")
-        module3 = module_from_name(mem.process_handle, "BioShockInfinite.exe").lpBaseOfDll
+        module_bio = module_from_name(mem.process_handle, "BioShockInfinite.exe").lpBaseOfDll
         print("Game Found!")
         break
 
@@ -582,7 +582,7 @@ def clock_stop():
 # funcs for bioshock inf
 
 def bio_fly():
-    addr1 = getpointeraddress(module3 + 0x00358660, fly_offs)
+    addr1 = getpointeraddress(module_bio + 0x00358660, fly_offs)
     while 1:
         try:
             mem.write_int(addr1, 0x43fa0000)
@@ -594,19 +594,22 @@ def bio_fly():
 
 
 def bio_pistol():
-    addr1 = getpointeraddress(module3 + 0x00F6648C, pistol_ammo_offs)
+    addr1 = getpointeraddress(module_bio + 0x00F6648C, pistol_ammo_offs)
+    addr2 = getpointeraddress(module_bio + 0x00F687F8, salt_offs)
     while 1:
         try:
             mem.write_int(addr1, 0x0000000c)
+            mem.write_int(addr2, 0x00000064)
         except pymem.exception.MemoryWriteError as e:
             print(f"Error writing memory: {e}")
         if keyboard.is_pressed("F1"):
             mem.write_int(addr1, 0x0000000c)
+            mem.write_int(addr2, 0x0000000c)
             break
 
 
 def bio_mon():
-    addr1 = getpointeraddress(module3 + 0x00FA2B98, money_offs)
+    addr1 = getpointeraddress(module_bio + 0x00FA2B98, money_offs)
     while 1:
         try:
             mem.write_int(addr1, 0x00002328)
@@ -621,8 +624,8 @@ def bio_mon():
 
 
 def John117():
-    addr1 = getpointeraddress(module2 + 0x01C38880, primary_offsets)
-    addr2 = getpointeraddress(module2 + 0x01C38880, fire_rate_offsets)
+    addr1 = getpointeraddress(module_halo + 0x01C38880, primary_offsets)
+    addr2 = getpointeraddress(module_halo + 0x01C38880, fire_rate_offsets)
 
     while 1:
         try:
@@ -636,7 +639,7 @@ def John117():
 
 
 def new_health():
-    addr = getpointeraddress(module2 + 0x01C35AB0, shield_offsets)
+    addr = getpointeraddress(module_halo + 0x01C35AB0, shield_offsets)
 
     while 1:
         try:
@@ -649,9 +652,9 @@ def new_health():
 
 
 def shotgun():
-    addr1 = getpointeraddress(module2 + 0x01C38880, primary_offsets)
-    addr2 = getpointeraddress(module2 + 0x01C38880, shotgun_trig_offsets)
-    addr3 = getpointeraddress(module2 + 0x01C38880, fire_rate_offsets)
+    addr1 = getpointeraddress(module_halo + 0x01C38880, primary_offsets)
+    addr2 = getpointeraddress(module_halo + 0x01C38880, shotgun_trig_offsets)
+    addr3 = getpointeraddress(module_halo + 0x01C38880, fire_rate_offsets)
 
     while 1:
         try:
@@ -665,10 +668,10 @@ def shotgun():
 
 
 def no_spread():
-    addr1 = getpointeraddress(module2 + 0x01C38880, bullet_spread_offsets_2)
-    addr2 = getpointeraddress(module2 + 0x01C38880, trig_offsets)
-    addr3 = getpointeraddress(module2 + 0x01C38880, shotgun_trig_offsets)
-    addr4 = getpointeraddress(module2 + 0x01C38880, fire_rate_offsets)
+    addr1 = getpointeraddress(module_halo + 0x01C38880, bullet_spread_offsets_2)
+    addr2 = getpointeraddress(module_halo + 0x01C38880, trig_offsets)
+    addr3 = getpointeraddress(module_halo + 0x01C38880, shotgun_trig_offsets)
+    addr4 = getpointeraddress(module_halo + 0x01C38880, fire_rate_offsets)
 
     while 1:
         try:
@@ -684,7 +687,7 @@ def no_spread():
 
 
 def wall_pierce():
-    addr1 = getpointeraddress(module2 + 0x01C38880, bullet_spread_offsets)
+    addr1 = getpointeraddress(module_halo + 0x01C38880, bullet_spread_offsets)
 
     while 1:
         try:
@@ -697,7 +700,7 @@ def wall_pierce():
 
 
 def old_health():
-    addr = getpointeraddress(module2 + 0x01BEA890, shield)
+    addr = getpointeraddress(module_halo + 0x01BEA890, shield)
 
     while 1:
         try:
@@ -710,8 +713,8 @@ def old_health():
 
 
 def oldJohn117():
-    addr1 = getpointeraddress(module2 + 0x01C38900, primary_offsets2)
-    addr2 = getpointeraddress(module2 + 0x01C38900, fire_rate_offsets2)
+    addr1 = getpointeraddress(module_halo + 0x01C38900, primary_offsets2)
+    addr2 = getpointeraddress(module_halo + 0x01C38900, fire_rate_offsets2)
 
     while 1:
         try:
@@ -725,7 +728,7 @@ def oldJohn117():
 
 
 def speed():
-    addr1 = getpointeraddress(module2 + 0x01C40480, player_speed_offsets)
+    addr1 = getpointeraddress(module_halo + 0x01C40480, player_speed_offsets)
 
     while 1:
         try:
@@ -738,7 +741,7 @@ def speed():
 
 
 def fuck_walls_halo():
-    addr1 = getpointeraddress(module2 + 0x01C35AB0, noclip_offsets)
+    addr1 = getpointeraddress(module_halo + 0x01C35AB0, noclip_offsets)
 
     while 1:
         try:
@@ -751,7 +754,7 @@ def fuck_walls_halo():
 
 
 def fuck_gravity_halo():
-    addr1 = getpointeraddress(module2 + 0x01C35950, noclip_offsets2)
+    addr1 = getpointeraddress(module_halo + 0x01C35950, noclip_offsets2)
 
     while 1:
         try:
@@ -764,7 +767,7 @@ def fuck_gravity_halo():
 
 
 def fuck_walls2():
-    addr1 = getpointeraddress(module2 + 0x01C35950, noclip_offsets2)
+    addr1 = getpointeraddress(module_halo + 0x01C35950, noclip_offsets2)
 
     while 1:
         try:
@@ -777,7 +780,7 @@ def fuck_walls2():
 
 
 def fuck_gravity2_halo():
-    addr1 = getpointeraddress(module2 + 0x01C35950, noclip_offsets2)
+    addr1 = getpointeraddress(module_halo + 0x01C35950, noclip_offsets2)
 
     while 1:
         try:
@@ -790,7 +793,7 @@ def fuck_gravity2_halo():
 
 
 def pause_game():
-    addr1 = getpointeraddress(module2 + 0x01C40480, pause)
+    addr1 = getpointeraddress(module_halo + 0x01C40480, pause)
 
     while 1:
         try:
@@ -803,8 +806,8 @@ def pause_game():
 
 
 def haha_number_go_brrr():
-    addr1 = getpointeraddress(module2 + 0x01C40480, pause)
-    addr2 = getpointeraddress(module2 + 0x01C40480, pause)
+    addr1 = getpointeraddress(module_halo + 0x01C40480, pause)
+    addr2 = getpointeraddress(module_halo + 0x01C40480, pause)
 
     while 1:
         try:
@@ -818,8 +821,8 @@ def haha_number_go_brrr():
 
 
 def hands():
-    addr1 = getpointeraddress(module2 + 0x01C35AB0, melee1_offsets)
-    addr2 = getpointeraddress(module2 + 0x01C35AB0, melee2_offsets)
+    addr1 = getpointeraddress(module_halo + 0x01C35AB0, melee1_offsets)
+    addr2 = getpointeraddress(module_halo + 0x01C35AB0, melee2_offsets)
 
     while 1:
         try:
@@ -834,10 +837,10 @@ def hands():
 
 
 def plasma():
-    addr1 = getpointeraddress(module2 + 0x01C38880, plasma_fire_rate_offsets)
-    addr2 = getpointeraddress(module2 + 0x01C38880, fire_rate_offsets)
-    addr3 = getpointeraddress(module2 + 0x01C38880, plasma_ammo_offsets)
-    addr4 = getpointeraddress(module2 + 0x01C38880, bullet_spread_offsets)
+    addr1 = getpointeraddress(module_halo + 0x01C38880, plasma_fire_rate_offsets)
+    addr2 = getpointeraddress(module_halo + 0x01C38880, fire_rate_offsets)
+    addr3 = getpointeraddress(module_halo + 0x01C38880, plasma_ammo_offsets)
+    addr4 = getpointeraddress(module_halo + 0x01C38880, bullet_spread_offsets)
 
     while 1:
         try:
@@ -854,7 +857,7 @@ def plasma():
 #  Tele functions
 
 def tele_up():
-    addr = getpointeraddress(module2 + 0x01C35950, Z_offsets)
+    addr = getpointeraddress(module_halo + 0x01C35950, Z_offsets)
     if addr is not None:
         try:
             mem.write_int(addr, 0x42480000)
@@ -863,9 +866,9 @@ def tele_up():
 
 
 def tele_halo():
-    addr = getpointeraddress(module2 + 0x01C35950, Z_offsets)
-    addr1 = getpointeraddress(module2 + 0x01C35950, Y_offsets)
-    addr2 = getpointeraddress(module2 + 0x01C35950, X_offsets)
+    addr = getpointeraddress(module_halo + 0x01C35950, Z_offsets)
+    addr1 = getpointeraddress(module_halo + 0x01C35950, Y_offsets)
+    addr2 = getpointeraddress(module_halo + 0x01C35950, X_offsets)
     if addr is not None:
         try:
             mem.write_int(addr, 0x0)
@@ -876,9 +879,9 @@ def tele_halo():
 
 
 def tele_keys():
-    addr = getpointeraddress(module2 + 0x01C35950, Z_offsets)
-    addr1 = getpointeraddress(module2 + 0x01C35950, Y_offsets)
-    addr2 = getpointeraddress(module2 + 0x01C35950, X_offsets)
+    addr = getpointeraddress(module_halo + 0x01C35950, Z_offsets)
+    addr1 = getpointeraddress(module_halo + 0x01C35950, Y_offsets)
+    addr2 = getpointeraddress(module_halo + 0x01C35950, X_offsets)
     if addr is not None:
         try:
             mem.write_int(addr, 0xbaf40305)
@@ -889,9 +892,9 @@ def tele_keys():
 
 
 def plasma_pistol():
-    addr = getpointeraddress(module2 + 0x01C38880, plasma_ammo_offsets)
-    addr2 = getpointeraddress(module2 + 0x02EABA18, plasma_pistol_offsets)
-    addr3 = getpointeraddress(module2 + 0x01C38880, plasma_fire_rate_offsets)
+    addr = getpointeraddress(module_halo + 0x01C38880, plasma_ammo_offsets)
+    addr2 = getpointeraddress(module_halo + 0x02EABA18, plasma_pistol_offsets)
+    addr3 = getpointeraddress(module_halo + 0x01C38880, plasma_fire_rate_offsets)
 
     while 1:
         try:
