@@ -1,3 +1,6 @@
+import psutil
+import os
+from tqdm import tqdm
 from Pycho1 import *
 
 # GUI
@@ -73,6 +76,14 @@ button4_tab1.pack(pady=10)
 button5_tab1 = tk.Button(tab1, text="Legendary Mode", bg='black', fg='white', cursor="cross",
                          command=multi_run_legendary)
 button5_tab1.pack(pady=10)
+
+button6_tab1 = tk.Button(tab1, text="Big Raz", bg='black', fg='white', cursor="cross",
+                         command=multi_run_big)
+button6_tab1.pack(pady=10)
+
+button7_tab1 = tk.Button(tab1, text="Small Raz", bg='black', fg='white', cursor="cross",
+                         command=multi_run_small)
+button7_tab1.pack(pady=10)
 
 button6_tab1 = tk.Button(tab1, text="Exit", bg='black', fg='white', cursor="cross", command=root.destroy)
 button6_tab1.pack(pady=10)
