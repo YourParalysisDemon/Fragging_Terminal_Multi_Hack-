@@ -16,9 +16,7 @@ from colorama import Fore, Back, Style
 from offsets import *
 from gui import *
 
-
 colorama.init()
-
 
 while True:
     password = input(Fore.RED + Back.BLACK + Style.BRIGHT + "Enter password ")
@@ -28,7 +26,6 @@ while True:
     else:
         print(Fore.RED + Back.BLACK + Style.BRIGHT + "Try again retard")
 
-
 game_list = ["Games Available",
              "● Psychonauts",
              "● Psychonauts 2",
@@ -37,7 +34,6 @@ game_list = ["Games Available",
              "● The binding of isaac"]
 for game_list in game_list:
     print(game_list)
-
 
 while True:
 
@@ -50,7 +46,7 @@ while True:
 
     elif game == "Psychonauts 2":
         mem = Pymem("Psychonauts2-Win64-Shipping")
-        module = module_from_name(mem.process_handle, "Psychonauts2-Win64-Shipping.exe").lpBaseOfDll
+        module_pycho2 = module_from_name(mem.process_handle, "Psychonauts2-Win64-Shipping.exe").lpBaseOfDll
         print("Game Found!")
         break
 
@@ -74,7 +70,6 @@ while True:
 
     else:
         print(Fore.RED + Back.BLACK + Style.BRIGHT + "How fucking stupid are you???")
-
 
 print("""
 ██╗░░██╗░█████╗░██╗░░░██╗███████╗  ███████╗██╗░░░██╗███╗░░██╗
@@ -186,6 +181,16 @@ def multi_run_legendary():
 
 def multi_run_stats():
     new_thread = Thread(target=stats, daemon=True)
+    new_thread.start()
+
+
+def multi_run_small():
+    new_thread = Thread(target=small_raz, daemon=True)
+    new_thread.start()
+
+
+def multi_run_big():
+    new_thread = Thread(target=big_raz, daemon=True)
     new_thread.start()
 
 
@@ -354,16 +359,18 @@ def multi_isaac_bomb():
 def multi_isaac_fire():
     new_thread = Thread(target=isaac_fire_rate, daemon=True)
     new_thread.start()
+
+
 # funcs for pycho 1
 
 
 def god_hack():
     addr = getpointeraddress(module1 + 0x0038CBB8, health1_offsets)
-    addr1 = getpointeraddress(module1 + 0x00383838, blast_offsets)
+    addr2 = getpointeraddress(module1 + 0x0038CBB8, raz_lives)
     while 1:
         try:
             mem.write_int(addr, 0x47960000)
-            mem.write_int(addr1, 0x000001d2)
+            mem.write_int(addr2, 0x41000000)
             sleep(0.02)
             if keyboard.is_pressed("space"):
                 keyboard.press_and_release("space")
@@ -464,13 +471,49 @@ def tele_main_lodge():
         print(f"Error writing memory: {e}")
 
 
+def big_raz():
+    addr = getpointeraddress(module1 + 0X003839D8, player_size_1)
+    addr1 = getpointeraddress(module1 + 0X00383A30, player_size_2)
+    addr2 = getpointeraddress(module1 + 0X003839D8, player_size_3)
+    while 1:
+        try:
+            mem.write_int(addr, 0x41000000)
+            mem.write_int(addr1, 0x41000000)
+            mem.write_int(addr2, 0x41000000)
+        except pymem.exception.MemoryWriteError as e:
+            print(f"Error writing memory: {e}")
+        if keyboard.is_pressed("F1"):
+            mem.write_int(addr, 0x3f800000)
+            mem.write_int(addr1, 0x3f800000)
+            mem.write_int(addr2, 0x3f800000)
+            break
+
+
+def small_raz():
+    addr = getpointeraddress(module1 + 0X003839D8, player_size_1)
+    addr1 = getpointeraddress(module1 + 0X00383A30, player_size_2)
+    addr2 = getpointeraddress(module1 + 0X003839D8, player_size_3)
+    while 1:
+        try:
+            mem.write_int(addr, 0x3e4ccccd)
+            mem.write_int(addr1, 0x3e4ccccd)
+            mem.write_int(addr2, 0x3e4ccccd)
+        except pymem.exception.MemoryWriteError as e:
+            print(f"Error writing memory: {e}")
+        if keyboard.is_pressed("F1"):
+            mem.write_int(addr, 0x3f800000)
+            mem.write_int(addr1, 0x3f800000)
+            mem.write_int(addr2, 0x3f800000)
+            break
+
+
 # funcs for pycho 2
 
 
 def god_hack2():
-    addr1 = getpointeraddress(module + 0x05549500, laser_offsets)
-    addr2 = getpointeraddress(module + 0x05540360, health_offsets)
-    addr3 = getpointeraddress(module + 0x0533DD00, cash_offsets)
+    addr1 = getpointeraddress(module_pycho2 + 0x05549500, laser_offsets)
+    addr2 = getpointeraddress(module_pycho2 + 0x05540360, health_offsets)
+    addr3 = getpointeraddress(module_pycho2 + 0x0533DD00, cash_offsets)
     while 1:
         try:
             mem.write_int(addr1, 0x57550000)
@@ -502,9 +545,9 @@ def spam():
 
 
 def meth():
-    addr = getpointeraddress(module + 0x054B9258, player_speed)
-    addr2 = getpointeraddress(module + 0x05549500, walk_vel_offsets)
-    addr3 = getpointeraddress(module + 0x05549500, max_vel_offsets)
+    addr = getpointeraddress(module_pycho2 + 0x054B9258, player_speed)
+    addr2 = getpointeraddress(module_pycho2 + 0x05549500, walk_vel_offsets)
+    addr3 = getpointeraddress(module_pycho2 + 0x05549500, max_vel_offsets)
     while 1:
         try:
             mem.write_int(addr, 0x40a00000)
@@ -520,7 +563,7 @@ def meth():
 
 
 def fuck_gravity2():
-    addr = getpointeraddress(module + 0x054B9258, gravity_offsets2)
+    addr = getpointeraddress(module_pycho2 + 0x054B9258, gravity_offsets2)
     while 1:
         try:
             mem.write_int(addr, 0x00000000)
@@ -532,7 +575,7 @@ def fuck_gravity2():
 
 
 def flip_gravity():
-    addr = getpointeraddress(module + 0x05549500, flip_gravity_offsets)
+    addr = getpointeraddress(module_pycho2 + 0x05549500, flip_gravity_offsets)
     while 1:
         try:
             mem.write_int(addr, 0xbf800000)
@@ -544,7 +587,7 @@ def flip_gravity():
 
 
 def clock_increase():
-    addr = getpointeraddress(module + 0x0554CE10, clock_offsets)
+    addr = getpointeraddress(module_pycho2 + 0x0554CE10, clock_offsets)
     while 1:
         try:
             mem.write_int(addr, 0x41400000)
@@ -556,7 +599,7 @@ def clock_increase():
 
 
 def clock_decrease():
-    addr = getpointeraddress(module + 0x0554CE10, clock_offsets)
+    addr = getpointeraddress(module_pycho2 + 0x0554CE10, clock_offsets)
     while 1:
         try:
             mem.write_int(addr, 0x3e99999a)
@@ -568,7 +611,7 @@ def clock_decrease():
 
 
 def clock_stop():
-    addr1 = getpointeraddress(module + 0x0554CE10, clock_offsets)
+    addr1 = getpointeraddress(module_pycho2 + 0x0554CE10, clock_offsets)
     while 1:
         try:
             mem.write_int(addr1, 0x00000000)
