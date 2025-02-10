@@ -1,7 +1,6 @@
 # Pycho 1 offsets
 health1_offsets = [0X0, 0X4, 0X0, 0X100, 0X10, 0X0, 0X2C8]
 gravity1_offsets = [0X0, 0X94]
-blast_offsets = [0X4, 0X18, 0XC7, 0X253C]
 run_offsets = [0X4, 0X708]
 no_clip_offsets = [0X0, 0X110]
 # no_clip_offsets = [0X0, 0X170] 0x00386AE0
@@ -10,9 +9,9 @@ z_offsets = [0X10, 0X44]  # 003839D8
 y_offsets = [0X0, 0X40]  # 00386AE0
 x_offsets = [0X10, 0X48]  # 003839D8
 raz_lives = [0X58, 0XF4, 0X0, 0X310, 0X0, 0X28C]  # 0038CBB8
-player_size_1 = [0X4, 0X6E8]  # 00383834
-player_size_2 = [0X4, 0X6E4]  # 00383838
-player_size_3 = [0X4, 0X6E0]  # 00383834
+player_size_1 = [0XA8, 0X1B8]  # 003839D8
+player_size_2 = [0X8, 0X34, 0X4B4]  # 00383A30
+player_size_3 = [0XA8, 0X1B0]  # 003839D8
 
 # Pycho 2 offsets
 laser_offsets = [0x8, 0x8, 0x270, 0xE0, 0x8, 0x104]
