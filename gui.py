@@ -16,6 +16,11 @@ root.title("Fragging Terminal")
 root.geometry("340x450")
 
 
+def restart_program():
+    os.startfile("Pycho1.exe")
+    root.destroy()
+
+
 def callback(url):
     webbrowser.open_new(url)
 
@@ -28,13 +33,11 @@ def hide():
     root.withdraw()
 
 
-# Create a style object
+# style object
 style = ttk.Style()
 style.theme_use("classic")
+style.configure("TFrame", background="black", foreground="red")
 style.configure("TNotebook.Tab", background="black", foreground="red")
-style.map("TNotebook.Tab",
-          background=[("pressed", "black"), ("disabled", "red")],
-          foreground=[("pressed", "red"), ("disabled", "white")])
 
 # notebook (tab control)
 notebook = ttk.Notebook(root)
@@ -59,56 +62,56 @@ notebook.add(tab6, text='Halo 1 old')
 notebook.add(tab7, text='The Binding of Isaac')
 
 # first tab pycho 1
-button1_tab1 = tk.Button(tab1, text="Health", bg='black', fg='white', cursor="cross", command=multi_run_god)
+button1_tab1 = tk.Button(tab1, text="Health", bg='black', fg='red', cursor="cross", command=multi_run_god)
 button1_tab1.pack(pady=10)
 
-button2_tab1 = tk.Button(tab1, text="Fuck walking", bg='black', fg='white', cursor="cross", command=multi_run_move)
+button2_tab1 = tk.Button(tab1, text="Fuck walking", bg='black', fg='red', cursor="cross", command=multi_run_move)
 button2_tab1.pack(pady=10)
 
-button3_tab1 = tk.Button(tab1, text="Run", bg='black', fg='white', cursor="cross",
+button3_tab1 = tk.Button(tab1, text="Run", bg='black', fg='red', cursor="cross",
                          command=multi_run_move2)
 button3_tab1.pack(pady=10)
 
-button4_tab1 = tk.Button(tab1, text="Fuck gravity", bg='black', fg='white', cursor="cross",
+button4_tab1 = tk.Button(tab1, text="Fuck gravity", bg='black', fg='red', cursor="cross",
                          command=multi_run_gravity)
 button4_tab1.pack(pady=10)
 
-button5_tab1 = tk.Button(tab1, text="Legendary Mode", bg='black', fg='white', cursor="cross",
+button5_tab1 = tk.Button(tab1, text="Legendary Mode", bg='black', fg='red', cursor="cross",
                          command=multi_run_legendary)
 button5_tab1.pack(pady=10)
 
-button6_tab1 = tk.Button(tab1, text="Big Raz", bg='black', fg='white', cursor="cross",
+button6_tab1 = tk.Button(tab1, text="Big Raz", bg='black', fg='red', cursor="cross",
                          command=multi_run_big)
 button6_tab1.pack(pady=10)
 
-button7_tab1 = tk.Button(tab1, text="Small Raz", bg='black', fg='white', cursor="cross",
+button7_tab1 = tk.Button(tab1, text="Small Raz", bg='black', fg='red', cursor="cross",
                          command=multi_run_small)
 button7_tab1.pack(pady=10)
 
-button6_tab1 = tk.Button(tab1, text="Exit", bg='black', fg='white', cursor="cross", command=root.destroy)
+button6_tab1 = tk.Button(tab1, text="Exit", bg='black', fg='red', cursor="cross", command=restart_program)
 button6_tab1.pack(pady=10)
 
 # second tab pycho 2
-button1_tab2 = tk.Button(tab2, text="Health", bg='black', fg='white', cursor="cross", command=multi_run_god2)
+button1_tab2 = tk.Button(tab2, text="Health", bg='black', fg='red', cursor="cross", command=multi_run_god2)
 button1_tab2.pack(pady=10)
 
-button2_tab2 = tk.Button(tab2, text="Meth", bg='black', fg='white', cursor="cross", command=multi_run_meth)
+button2_tab2 = tk.Button(tab2, text="Meth", bg='black', fg='red', cursor="cross", command=multi_run_meth)
 button2_tab2.pack(pady=10)
 
-button3_tab2 = tk.Button(tab2, text="Fuck Gravity", bg='black', fg='white', cursor="cross",
+button3_tab2 = tk.Button(tab2, text="Fuck Gravity", bg='black', fg='red', cursor="cross",
                          command=multi_run_fuck_gravity)
 button3_tab2.pack(pady=10)
 
-button4_tab2 = tk.Button(tab2, text="Speed up time", bg='black', fg='white', cursor="cross", command=multi_run_fast)
+button4_tab2 = tk.Button(tab2, text="Speed up time", bg='black', fg='red', cursor="cross", command=multi_run_fast)
 button4_tab2.pack(pady=10)
 
-button5_tab2 = tk.Button(tab2, text="Slow down time", bg='black', fg='white', cursor="cross", command=multi_run_slow)
+button5_tab2 = tk.Button(tab2, text="Slow down time", bg='black', fg='red', cursor="cross", command=multi_run_slow)
 button5_tab2.pack(pady=10)
 
-button6_tab2 = tk.Button(tab2, text="Flip Gravity", bg='black', fg='white', cursor="cross", command=multi_run_flip)
+button6_tab2 = tk.Button(tab2, text="Flip Gravity", bg='black', fg='red', cursor="cross", command=multi_run_flip)
 button6_tab2.pack(pady=10)
 
-button7_tab2 = tk.Button(tab2, text="Exit", bg='black', fg='white', cursor="cross", command=root.destroy)
+button7_tab2 = tk.Button(tab2, text="Exit", bg='black', fg='red', cursor="cross", command=root.destroy)
 button7_tab2.pack(pady=10)
 
 # three tab dev/info
@@ -116,78 +119,78 @@ label1_tab4 = tk.Label(tab3, text="Hello and thank you for using my software.")
 label1_tab4.pack(pady=10)
 
 # tab four bioshock
-button1_tab4 = tk.Button(tab4, text="Pistol Ammo", bg='black', fg='white', cursor="cross", command=multi_bio_pistol)
+button1_tab4 = tk.Button(tab4, text="Pistol Ammo", bg='black', fg='red', cursor="cross", command=multi_bio_pistol)
 button1_tab4.pack(pady=10)
 
-button2_tab4 = tk.Button(tab4, text="Money", bg='black', fg='white', cursor="cross", command=multi_bio_mon)
+button2_tab4 = tk.Button(tab4, text="Money", bg='black', fg='red', cursor="cross", command=multi_bio_mon)
 button2_tab4.pack(pady=10)
 
-button3_tab4 = tk.Button(tab4, text="Fuck Gravity", bg='black', fg='white', cursor="cross",
+button3_tab4 = tk.Button(tab4, text="Fuck Gravity", bg='black', fg='red', cursor="cross",
                          command=multi_bio_fly)
 button3_tab4.pack(pady=10)
 
 # tabs for halo 1
 
-button1_tab5 = tk.Button(tab5, text="Health", bg='black', fg='white', cursor="cross", command=multi_run_new_health)
+button1_tab5 = tk.Button(tab5, text="Health", bg='black', fg='red', cursor="cross", command=multi_run_new_health)
 button1_tab5.pack(pady=10)
 
-button2_tab5 = tk.Button(tab5, text="UNSC Fire rate", bg='black', fg='white', cursor="cross", command=multi_run_117)
+button2_tab5 = tk.Button(tab5, text="UNSC Fire rate", bg='black', fg='red', cursor="cross", command=multi_run_117)
 button2_tab5.pack(pady=10)
 
-button3_tab5 = tk.Button(tab5, text="Covenant Fire rate", bg='black', fg='white', cursor="cross",
+button3_tab5 = tk.Button(tab5, text="Covenant Fire rate", bg='black', fg='red', cursor="cross",
                          command=multi_run_plasma)
 button3_tab5.pack(pady=10)
 
-button4_tab5 = tk.Button(tab5, text="Bullet Pierce", bg='black', fg='white', cursor="cross",
+button4_tab5 = tk.Button(tab5, text="Bullet Pierce", bg='black', fg='red', cursor="cross",
                          command=multi_run_wall_pierce)
 button4_tab5.pack(pady=10)
 
-button5_tab5 = tk.Button(tab5, text="No Spread", bg='black', fg='white', cursor="cross", command=multi_run_nospread)
+button5_tab5 = tk.Button(tab5, text="No Spread", bg='black', fg='red', cursor="cross", command=multi_run_nospread)
 button5_tab5.pack(pady=10)
 
-button6_tab5 = tk.Button(tab5, text="Shotgun", bg='black', fg='white', cursor="cross", command=multi_run_shotgun)
+button6_tab5 = tk.Button(tab5, text="Shotgun", bg='black', fg='red', cursor="cross", command=multi_run_shotgun)
 button6_tab5.pack(pady=10)
 
-button7_tab5 = tk.Button(tab5, text="Throw Hands", bg='black', fg='white', cursor="cross", command=multi_run_hands)
+button7_tab5 = tk.Button(tab5, text="Throw Hands", bg='black', fg='red', cursor="cross", command=multi_run_hands)
 button7_tab5.pack(pady=10)
 
-button8_tab5 = tk.Button(tab5, text="No Clip", bg='black', fg='white', cursor="cross", command=multi_run_clip)
+button8_tab5 = tk.Button(tab5, text="No Clip", bg='black', fg='red', cursor="cross", command=multi_run_clip)
 button8_tab5.pack(pady=10)
 
-button9_tab5 = tk.Button(tab5, text="Speed", bg='black', fg='white', cursor="cross", command=multi_run_speed)
+button9_tab5 = tk.Button(tab5, text="Speed", bg='black', fg='red', cursor="cross", command=multi_run_speed)
 button9_tab5.pack(pady=10)
 
-button10_tab5 = tk.Button(tab5, text="Plasma Pistol", bg='black', fg='white', cursor="cross",
+button10_tab5 = tk.Button(tab5, text="Plasma Pistol", bg='black', fg='red', cursor="cross",
                           command=multi_run_plasma_pistol)
 button10_tab5.pack(pady=10)
 
 # second tab
-button1_tab6 = tk.Button(tab6, text="Health", bg='black', fg='white', cursor="cross", command=multi_run_old_health)
+button1_tab6 = tk.Button(tab6, text="Health", bg='black', fg='red', cursor="cross", command=multi_run_old_health)
 button1_tab6.pack(pady=10)
 
-button2_tab6 = tk.Button(tab6, text="UNSC Fire rate", bg='black', fg='white', cursor="cross", command=multi_run_0ld_117)
+button2_tab6 = tk.Button(tab6, text="UNSC Fire rate", bg='black', fg='red', cursor="cross", command=multi_run_0ld_117)
 button2_tab6.pack(pady=10)
 
-button3_tab6 = tk.Button(tab6, text="Speed", bg='black', fg='white', cursor="cross", command=multi_run_speed)
+button3_tab6 = tk.Button(tab6, text="Speed", bg='black', fg='red', cursor="cross", command=multi_run_speed)
 button3_tab6.pack(pady=10)
 
-button4_tab6 = tk.Button(tab6, text="Confuse NPC", bg='black', fg='white', cursor="cross", command=multi_run_haha)
+button4_tab6 = tk.Button(tab6, text="Confuse NPC", bg='black', fg='red', cursor="cross", command=multi_run_haha)
 button4_tab6.pack(pady=10)
 
-button5_tab6 = tk.Button(tab6, text="Pause", bg='black', fg='white', cursor="cross", command=multi_run_pause)
+button5_tab6 = tk.Button(tab6, text="Pause", bg='black', fg='red', cursor="cross", command=multi_run_pause)
 button5_tab6.pack(pady=10)
 
-button5_tab6 = tk.Button(tab6, text="Stats", bg='black', fg='white', cursor="cross", command=multi_run_stats)
+button5_tab6 = tk.Button(tab6, text="Stats", bg='black', fg='red', cursor="cross", command=multi_run_stats)
 button5_tab6.pack(pady=10)
 
 # isaac tab
-button1_tab7 = tk.Button(tab7, text="Health", bg='black', fg='white', cursor="cross", command=multi_isaac_health)
+button1_tab7 = tk.Button(tab7, text="Health", bg='black', fg='red', cursor="cross", command=multi_isaac_health)
 button1_tab7.pack(pady=10)
 
-button2_tab7 = tk.Button(tab7, text="Bombs", bg='black', fg='white', cursor="cross", command=multi_isaac_bomb)
+button2_tab7 = tk.Button(tab7, text="Bombs", bg='black', fg='red', cursor="cross", command=multi_isaac_bomb)
 button2_tab7.pack(pady=10)
 
-button3_tab7 = tk.Button(tab7, text="Fire rate", bg='black', fg='white', cursor="cross", command=multi_isaac_fire)
+button3_tab7 = tk.Button(tab7, text="Fire rate", bg='black', fg='red', cursor="cross", command=multi_isaac_fire)
 button3_tab7.pack(pady=10)
 
 # Clock
