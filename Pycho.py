@@ -1,4 +1,6 @@
 import keyboard
+import os
+import sys
 import tkinter as tk
 import pygame
 import time
@@ -208,7 +210,7 @@ def multi_run_meth():
 
 
 def multi_run_fuck_gravity():
-    new_thread = Thread(target=fuck_gravity2, daemon=True)
+    new_thread = Thread(target=fuck_gravity_pycho2, daemon=True)
     new_thread.start()
 
 
@@ -562,7 +564,7 @@ def meth():
             break
 
 
-def fuck_gravity2():
+def fuck_gravity_pycho2():
     addr = getpointeraddress(module_pycho2 + 0x054B9258, gravity_offsets2)
     while 1:
         try:
@@ -985,3 +987,4 @@ def isaac_fire_rate():
             print(f"Error writing memory: {e}")
         if keyboard.is_pressed("F1"):
             break
+
