@@ -82,3 +82,13 @@ jump_offsets = [0X38, 0X16F8]
 movement_offsets = [0X38, 0X16F0]
 dead_z_offsets = [0X10, 0X8, 0X520, 0X738, 0X51C]
 money = [0X10, 0XB8, 0X4F4]
+
+#  Company of Heroes 
+Money_offsets = [0x0, 0X10, 0X24, 0X18, 0X264]
+gas_offsets = [0x0, 0x10, 0x30, 0x18, 0x268]
+ammo_offsets = [0x0, 0x26C]
+cap_offsets = [0x0, 0x4E8]
+command_offsets = [0X0, 0X274]
+
+#  South Park 
+health_offsets_south_park = [0x448, 0x110, 0x0, 0x0, 0x50, 0x438, 0x24]
