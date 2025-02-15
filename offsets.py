@@ -69,3 +69,6 @@ bomb_offsets = [0X1C0, 0X0, 0X114, 0X8C, 0X4, 0X0, 0XB70]  # 0021E508
 bomb_timer_offsets = [0X134, 0X0, 0X114, 0X14, 0X0, 0X7C, 0X4, 0X0, 0XCE4]  # 0021E598
 isaac_health_offsets = [0X220, 0x7C, 0X4, 0X8C, 0X8C, 0X4, 0X0, 0XB54]  # 0021E3FC
 isaac_fire_rate_offsets = [0X5CC, 0XB8, 0XCD0]  # 0021A1F4
+
+#  spongebob cosmic shake
+spongebob_fly = [0X8, 0X8, 0X70, 0X9C]  # "CosmicShake-Win64-Shipping.exe"+057309F0
