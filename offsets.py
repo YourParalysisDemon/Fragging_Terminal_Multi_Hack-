@@ -5,9 +5,9 @@ run_offsets = [0X4, 0X708]
 no_clip_offsets = [0X0, 0X110]
 # no_clip_offsets = [0X0, 0X170] 0x00386AE0
 walk_offsets = [0X120]  # 003839D8
-z_offsets = [0X10, 0X44]  # 003839D8
-y_offsets = [0X0, 0X40]  # 00386AE0
-x_offsets = [0X10, 0X48]  # 003839D8
+z_offsets = [0X10, 0X44]  # 0x003839D8
+y_offsets = [0X0, 0X40]  # 0x00386AE0
+x_offsets = [0X10, 0X48]  # 0x003839D8
 raz_lives = [0X58, 0XF4, 0X0, 0X310, 0X0, 0X28C]  # 0038CBB8
 player_size_1 = [0XA8, 0X1B8]  # 003839D8
 player_size_2 = [0X8, 0X34, 0X4B4]  # 00383A30
@@ -83,12 +83,19 @@ movement_offsets = [0X38, 0X16F0]
 dead_z_offsets = [0X10, 0X8, 0X520, 0X738, 0X51C]
 money = [0X10, 0XB8, 0X4F4]
 
-#  Company of Heroes 
+#  Metro lastLight
+lastlight_ammo = [0X118, 0X110, 0X440]  # "metro.exe"+00D36130
+
+#  Company of Heroes
 Money_offsets = [0x0, 0X10, 0X24, 0X18, 0X264]
 gas_offsets = [0x0, 0x10, 0x30, 0x18, 0x268]
 ammo_offsets = [0x0, 0x26C]
 cap_offsets = [0x0, 0x4E8]
 command_offsets = [0X0, 0X274]
 
-#  South Park 
+#  South Park
 health_offsets_south_park = [0x448, 0x110, 0x0, 0x0, 0x50, 0x438, 0x24]
+
+#  Risk of Rain 2
+risk_health = [0X460, 0X1A0]  # "mono-2.0-bdwgc.dll"+00770320
+risk_health2 = [0X0, 0X0, 0X0, 0X5C8, 0X70]  # 007701D0
