@@ -51,15 +51,19 @@ tab4 = ttk.Frame(notebook)
 tab5 = ttk.Frame(notebook)
 tab6 = ttk.Frame(notebook)
 tab7 = ttk.Frame(notebook)
+tab8 = ttk.Frame(notebook)
+
 
 # tabs to the notebook
-notebook.add(tab1, text='Psychonauts 1')
-notebook.add(tab2, text='Psychonauts 2')
+notebook.add(tab1, text='Pycho1')
+notebook.add(tab2, text='Pycho2')
 notebook.add(tab3, text='Dev/Info')
-notebook.add(tab4, text='BioShock Infinite')
-notebook.add(tab5, text='Halo 1 new')
-notebook.add(tab6, text='Halo 1 old')
-notebook.add(tab7, text='The Binding of Isaac')
+notebook.add(tab4, text='BioShock')
+notebook.add(tab5, text='Halo1 new')
+notebook.add(tab6, text='Halo1 old')
+notebook.add(tab7, text='Isaac')
+notebook.add(tab8, text='CosmicShake')
+
 
 # first tab pycho 1
 button1_tab1 = tk.Button(tab1, text="Health", bg='black', fg='red', cursor="cross", command=multi_run_god)
@@ -88,8 +92,12 @@ button7_tab1 = tk.Button(tab1, text="Small Raz", bg='black', fg='red', cursor="c
                          command=multi_run_small)
 button7_tab1.pack(pady=10)
 
-button6_tab1 = tk.Button(tab1, text="Exit", bg='black', fg='red', cursor="cross", command=restart_program)
-button6_tab1.pack(pady=10)
+button8_tab1 = tk.Button(tab1, text="Stats", bg='black', fg='red', cursor="cross",
+                         command=multi_run_raz_stats)
+button8_tab1.pack(pady=10)
+
+button9_tab1 = tk.Button(tab1, text="Exit", bg='black', fg='red', cursor="cross", command=restart_program)
+button9_tab1.pack(pady=10)
 
 # second tab pycho 2
 button1_tab2 = tk.Button(tab2, text="Health", bg='black', fg='red', cursor="cross", command=multi_run_god2)
@@ -193,6 +201,10 @@ button2_tab7.pack(pady=10)
 button3_tab7 = tk.Button(tab7, text="Fire rate", bg='black', fg='red', cursor="cross", command=multi_isaac_fire)
 button3_tab7.pack(pady=10)
 
+# Spongebob CosmicShake
+button1_tab8 = tk.Button(tab8, text="Fly", bg='black', fg='red', cursor="cross", command=spongebob_multi_fly)
+button1_tab8.pack(pady=10)
+
 # Clock
 time_label = tk.Label(tab3, font=("Arial", 10), fg="Black", bg="Red")
 time_label.pack(pady=10)
@@ -229,6 +241,7 @@ keyboard.add_hotkey("1", tele_main_lodge)
 keyboard.add_hotkey("k", root.destroy)
 keyboard.add_hotkey("l", multi_run_spam)
 keyboard.add_hotkey("F", multi_run_fuck_gravity)
+keyboard.add_hotkey("F", spongebob_multi_fly)
 keyboard.add_hotkey("F", multi_bio_fly)
 keyboard.add_hotkey("Z", multi_run_flip)
 keyboard.add_hotkey("-", multi_run_slow)
