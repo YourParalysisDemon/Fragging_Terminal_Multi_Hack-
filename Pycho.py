@@ -33,7 +33,8 @@ game_list = ["Games Available",
              "● Psychonauts 2",
              "● Halo 1",
              "● Bioshock infinite",
-             "● The binding of isaac"]
+             "● The binding of isaac",
+             "● Spongebob CosmicShake"]
 for game_list in game_list:
     print(game_list)
 
@@ -67,6 +68,12 @@ while True:
     elif game == "The binding of isaac":
         mem = Pymem("isaac-ng")
         module_isaac = module_from_name(mem.process_handle, "isaac-ng.exe").lpBaseOfDll
+        print("Game Found!")
+        break
+
+    elif game == "Spongebob CosmicShake":
+        mem = Pymem("CosmicShake-Win64-Shipping.exe")
+        module_sponge = module_from_name(mem.process_handle, "CosmicShake-Win64-Shipping.exe").lpBaseOfDll
         print("Game Found!")
         break
 
@@ -195,6 +202,10 @@ def multi_run_big():
     new_thread = Thread(target=big_raz, daemon=True)
     new_thread.start()
 
+
+def multi_run_raz_stats():
+    new_thread = Thread(target=stats, daemon=True)
+    new_thread.start()
 
 # Threads for pycho 2
 
@@ -363,8 +374,30 @@ def multi_isaac_fire():
     new_thread.start()
 
 
+# CosmicShake-Win64-Shipping.exe threads
+
+def spongebob_multi_fly():
+    new_thread = Thread(target=sponge_fly, daemon=True)
+    new_thread.start()
+
+
 # funcs for pycho 1
 
+def stats():
+    Reader = getpointeraddress(module1 + 0x003839D8, z_offsets)
+    Reader1 = getpointeraddress(module1 + 0x00386AE0, y_offsets)
+    Reader2 = getpointeraddress(module1 + 0x003839D8, x_offsets)
+
+    while 1:
+        try:
+            mem.read_float(Reader)
+            mem.read_float(Reader1)
+            mem.read_float(Reader2)
+            print(f"Coordinates: ({Reader}, {Reader1}, {Reader2})")
+        except pymem.exception.MemoryWriteError as e:
+            print(f"Error writing memory: {e}")
+        if keyboard.is_pressed("F1"):
+            break
 
 def god_hack():
     addr = getpointeraddress(module1 + 0x0038CBB8, health1_offsets)
@@ -443,7 +476,7 @@ def fuck_walking2():
             break
 
 
-def stats():
+def stats_halo():
     Reader = getpointeraddress(module1 + 0x003839D8, z_offsets)
     Reader1 = getpointeraddress(module1 + 0x00386AE0, y_offsets)
     Reader2 = getpointeraddress(module1 + 0x003839D8, x_offsets)
@@ -988,3 +1021,15 @@ def isaac_fire_rate():
         if keyboard.is_pressed("F1"):
             break
 
+
+# Spongebob CosmicShake
+
+def sponge_fly():
+    addr = getpointeraddress(module_sponge + 0x057309F0, spongebob_fly)
+    while 1:
+        try:
+            mem.write_int(addr, 0x43fa0000)
+        except pymem.exception.MemoryWriteError as e:
+            print(f"Error writing memory: {e}")
+        if keyboard.is_pressed("c"):
+            break
