@@ -25,6 +25,7 @@ walk_vel_offsets = [0X8, 0X8, 0X190, 0X19C]
 max_vel_offsets = [0X8, 0X8, 0X190, 0X1B0]
 flip_gravity_offsets = [0X8, 0X8, 0X190, 0X148]
 clock_offsets = [0XE8, 0XE0, 0X328]
+paper_Raz = [0X8, 0X8, 0X1E0, 0XA60, 0X0, 0X40, 0XA38]  # 05549500
 
 # Bioshock infinte
 
