@@ -12,6 +12,11 @@ raz_lives = [0X58, 0XF4, 0X0, 0X310, 0X0, 0X28C]  # 0038CBB8
 player_size_1 = [0XA8, 0X1B8]  # 003839D8
 player_size_2 = [0X8, 0X34, 0X4B4]  # 00383A30
 player_size_3 = [0XA8, 0X1B0]  # 003839D8
+attack_speed = [0X4, 0X7D4]  # "Psychonauts.exe"+00383838
+raz_skin_color_1 = []  # will add pointers later for skin_colors lol
+raz_skin_color_2 = []
+raz_skin_color_3 = []
+
 
 # Pycho 2 offsets
 laser_offsets = [0x8, 0x8, 0x270, 0xE0, 0x8, 0x104]
