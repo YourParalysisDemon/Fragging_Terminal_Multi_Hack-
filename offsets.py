@@ -16,6 +16,7 @@ attack_speed = [0X4, 0X7D4]  # "Psychonauts.exe"+00383838
 raz_skin_color_1 = []  # will add pointers later for skin_colors lol
 raz_skin_color_2 = []
 raz_skin_color_3 = []
+roof_walker = [0X0, 0XF0]  # 00386AE0
 
 
 # Pycho 2 offsets
