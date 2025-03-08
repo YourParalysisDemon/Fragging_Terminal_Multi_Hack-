@@ -19,7 +19,7 @@ from offsets import *
 from gui import *
 from Psychonauts_1 import *
 from Psychonauts_2 import *
-
+from Halo_CE import *
 
 colorama.init()
 
