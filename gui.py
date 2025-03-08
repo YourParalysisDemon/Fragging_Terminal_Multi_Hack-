@@ -96,8 +96,13 @@ button8_tab1 = tk.Button(tab1, text="Stats", bg='black', fg='red', cursor="cross
                          command=multi_run_raz_stats)
 button8_tab1.pack(pady=10)
 
-button9_tab1 = tk.Button(tab1, text="Exit", bg='black', fg='red', cursor="cross", command=restart_program)
+button9_tab1 = tk.Button(tab1, text="Flip Gravity", bg='black', fg='red', cursor="cross", command=multi_run_raz_flip)
+
 button9_tab1.pack(pady=10)
+
+button10_tab1 = tk.Button(tab1, text="Exit", bg='black', fg='red', cursor="cross", command=restart_program)
+
+button10_tab1.pack(pady=10)
 
 # second tab pycho 2
 button1_tab2 = tk.Button(tab2, text="Health", bg='black', fg='red', cursor="cross", command=multi_run_god2)
@@ -233,8 +238,8 @@ link1 = tab4 = tk.Label(tab3, text="Your Sleep Paralysis Demon", bg="black", fg=
 link1.bind("<Button-1>", lambda e: callback("https://steamcommunity.com/profiles/76561198259829950/"))
 link1.pack(pady=10)
 
-keyboard.add_hotkey("c", show)
-keyboard.add_hotkey("v", hide)
+keyboard.add_hotkey("-", show)
+keyboard.add_hotkey("=", hide)
 keyboard.add_hotkey("F", multi_run_gravity)
 keyboard.add_hotkey("G", multi_run_walls)
 keyboard.add_hotkey("1", tele_main_lodge)
