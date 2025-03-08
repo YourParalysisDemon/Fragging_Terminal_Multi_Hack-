@@ -1,4 +1,4 @@
-from Pycho1 import *
+from main import *
 
 keyboard.add_hotkey("Z", multi_run_flip)
 keyboard.add_hotkey("-", multi_run_slow)
