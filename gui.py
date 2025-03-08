@@ -2,7 +2,7 @@ import keyboard
 import psutil
 import os
 from tqdm import tqdm
-from Pycho1 import *
+from main import *
 from keybinds import *
 
 # GUI
