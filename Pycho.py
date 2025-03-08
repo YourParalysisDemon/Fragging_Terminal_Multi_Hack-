@@ -207,6 +207,11 @@ def multi_run_raz_stats():
     new_thread = Thread(target=stats, daemon=True)
     new_thread.start()
 
+
+def multi_run_raz_flip():
+    new_thread = Thread(target=flip_gravity_pycho1, daemon=True)
+    new_thread.start()
+
 # Threads for pycho 2
 
 
@@ -399,6 +404,7 @@ def stats():
         if keyboard.is_pressed("F1"):
             break
 
+
 def god_hack():
     addr = getpointeraddress(module1 + 0x0038CBB8, health1_offsets)
     addr2 = getpointeraddress(module1 + 0x0038CBB8, raz_lives)
@@ -437,6 +443,18 @@ def fuck_gravity():
             print(f"Error writing memory: {e}")
         if keyboard.is_pressed("C"):
             mem.write_int(addr, 0x1)
+            break
+
+
+def flip_gravity_pycho1():
+    addr = getpointeraddress(module1 + 0x00386AE0, roof_walker)
+    while 1:
+        try:
+            mem.write_int(addr, 0xbf800000)
+        except pymem.exception.MemoryWriteError as e:
+            print(f"Error writing memory: {e}")
+        if keyboard.is_pressed("C"):
+            mem.write_int(addr, 0x3f800000)
             break
 
 
