@@ -20,6 +20,7 @@ from gui import *
 from Psychonauts_1 import *
 from Psychonauts_2 import *
 from Halo_CE import *
+from Bioshock_infinite import *
 
 colorama.init()
 
