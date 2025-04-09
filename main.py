@@ -163,6 +163,11 @@ def multi_run_god():
     new_thread.start()
 
 
+def multi_run_cant_breath():
+    new_thread = Thread(target=breathless_mode, daemon=True)
+    new_thread.start()
+
+
 def multi_run_move():
     new_thread = Thread(target=fuck_walking, daemon=True)
     new_thread.start()
@@ -211,6 +216,7 @@ def multi_run_raz_stats():
 def multi_run_raz_flip():
     new_thread = Thread(target=flip_gravity_pycho1, daemon=True)
     new_thread.start()
+
 
 # Threads for pycho 2
 
@@ -388,6 +394,35 @@ def spongebob_multi_fly():
 
 # funcs for pycho 1
 
+
+def breathless_mode():  # Name from Your FBI Agent
+    addr = getpointeraddress(module1 + 0x003839D8, raz_skin_color_1)
+    addr2 = getpointeraddress(module1 + 0x00383838, raz_skin_color_2)
+    addr3 = getpointeraddress(module1 + 0x00383838, raz_skin_color_3)
+    addr4 = getpointeraddress(module1 + 0x0038CBB8, health1_offsets)
+
+    while 1:
+        try:
+            mem.write_int(addr, 0xbf800000)
+            mem.write_int(addr2, 0xbf800000)
+            mem.write_int(addr3, 0xbf800000)
+            mem.write_int(addr4, 0x40400000)
+            sleep(0.02)
+            if keyboard.is_pressed("space"):
+                keyboard.press_and_release("space")
+                sleep(0.07)
+                continue
+        except pymem.exception.MemoryWriteError as e:
+            print(f"Error writing memory: {e}")
+            break
+        if keyboard.is_pressed("F1"):
+            mem.write_int(addr, 0x3f800000)
+            mem.write_int(addr2, 0x3f800000)
+            mem.write_int(addr3, 0x3f800000)
+            mem.write_int(addr4, 0x47960000)
+            break
+
+
 def stats():
     Reader = getpointeraddress(module1 + 0x003839D8, z_offsets)
     Reader1 = getpointeraddress(module1 + 0x00386AE0, y_offsets)
@@ -401,6 +436,7 @@ def stats():
             print(f"Coordinates: ({Reader}, {Reader1}, {Reader2})")
         except pymem.exception.MemoryWriteError as e:
             print(f"Error writing memory: {e}")
+            break
         if keyboard.is_pressed("F1"):
             break
 
@@ -419,6 +455,7 @@ def god_hack():
                 continue
         except pymem.exception.MemoryWriteError as e:
             print(f"Error writing memory: {e}")
+            break
         if keyboard.is_pressed("F1"):
             break
 
@@ -430,6 +467,7 @@ def Legendary_mode():
             mem.write_int(addr, 0x0)
         except pymem.exception.MemoryWriteError as e:
             print(f"Error writing memory: {e}")
+            break
         if keyboard.is_pressed("F1"):
             break
 
@@ -441,6 +479,7 @@ def fuck_gravity():
             mem.write_int(addr, 0x1380)
         except pymem.exception.MemoryWriteError as e:
             print(f"Error writing memory: {e}")
+            break
         if keyboard.is_pressed("C"):
             mem.write_int(addr, 0x1)
             break
@@ -453,6 +492,7 @@ def flip_gravity_pycho1():
             mem.write_int(addr, 0xbf800000)
         except pymem.exception.MemoryWriteError as e:
             print(f"Error writing memory: {e}")
+            break
         if keyboard.is_pressed("C"):
             mem.write_int(addr, 0x3f800000)
             break
@@ -465,6 +505,7 @@ def fuck_walls():
             mem.write_int(addr, 0x00000000)
         except pymem.exception.MemoryWriteError as e:
             print(f"Error writing memory: {e}")
+            break
         if keyboard.is_pressed("H"):
             mem.write_int(addr, 0x2)
             break
@@ -477,6 +518,7 @@ def fuck_walking():
             mem.write_int(addr, 0x40c00000)
         except pymem.exception.MemoryWriteError as e:
             print(f"Error writing memory: {e}")
+            break
         if keyboard.is_pressed("C"):
             mem.write_int(addr, 0x3f800000)
             break
@@ -489,6 +531,7 @@ def fuck_walking2():
             mem.write_int(addr, 0x40c00000)
         except pymem.exception.MemoryWriteError as e:
             print(f"Error writing memory: {e}")
+            break
         if keyboard.is_pressed("C"):
             mem.write_int(addr, 0x3f800000)
             break
@@ -507,6 +550,7 @@ def stats_halo():
             print(Reader, Reader1, Reader2)
         except pymem.exception.MemoryWriteError as e:
             print(f"Error writing memory: {e}")
+            break
         if keyboard.is_pressed("F1"):
             break
 
@@ -535,6 +579,7 @@ def big_raz():
             mem.write_int(addr2, 0x41000000)
         except pymem.exception.MemoryWriteError as e:
             print(f"Error writing memory: {e}")
+            break
         if keyboard.is_pressed("F1"):
             mem.write_int(addr, 0x3f800000)
             mem.write_int(addr1, 0x3f800000)
@@ -553,6 +598,7 @@ def small_raz():
             mem.write_int(addr2, 0x3e4ccccd)
         except pymem.exception.MemoryWriteError as e:
             print(f"Error writing memory: {e}")
+            break
         if keyboard.is_pressed("F1"):
             mem.write_int(addr, 0x3f800000)
             mem.write_int(addr1, 0x3f800000)
@@ -579,6 +625,7 @@ def god_hack2():
                 continue
         except pymem.exception.MemoryWriteError as e:
             print(f"Error writing memory: {e}")
+            break
         if keyboard.is_pressed("F1"):
             break
 
@@ -608,6 +655,7 @@ def meth():
             mem.write_int(addr3, 0x459c4000)
         except pymem.exception.MemoryWriteError as e:
             print(f"Error writing memory: {e}")
+            break
         if keyboard.is_pressed("F1"):
             mem.write_int(addr, 0x3f800000)
             mem.write_int(addr2, 0x43fa0000)
@@ -622,6 +670,7 @@ def fuck_gravity_pycho2():
             mem.write_int(addr, 0x00000000)
         except pymem.exception.MemoryWriteError as e:
             print(f"Error writing memory: {e}")
+            break
         if keyboard.is_pressed("F1"):
             mem.write_int(addr, 0x3f800000)
             break
@@ -634,6 +683,7 @@ def flip_gravity():
             mem.write_int(addr, 0xbf800000)
         except pymem.exception.MemoryWriteError as e:
             print(f"Error writing memory: {e}")
+            break
         if keyboard.is_pressed("F1"):
             mem.write_int(addr, 0x40800000)
             break
@@ -646,6 +696,7 @@ def clock_increase():
             mem.write_int(addr, 0x41400000)
         except pymem.exception.MemoryWriteError as e:
             print(f"Error writing memory: {e}")
+            break
         if keyboard.is_pressed("F1"):
             mem.write_int(addr, 0x3f800000)
             break
@@ -658,6 +709,7 @@ def clock_decrease():
             mem.write_int(addr, 0x3e99999a)
         except pymem.exception.MemoryWriteError as e:
             print(f"Error writing memory: {e}")
+            break
         if keyboard.is_pressed("F1"):
             mem.write_int(addr, 0x3f800000)
             break
@@ -670,6 +722,7 @@ def clock_stop():
             mem.write_int(addr1, 0x00000000)
         except pymem.exception.MemoryWriteError as e:
             print(f"Error writing memory: {e}")
+            break
         if keyboard.is_pressed("F1"):
             mem.write_int(addr1, 0x3f800000)
             break
@@ -684,6 +737,7 @@ def bio_fly():
             mem.write_int(addr1, 0x43fa0000)
         except pymem.exception.MemoryWriteError as e:
             print(f"Error writing memory: {e}")
+            break
         if keyboard.is_pressed("F1"):
             mem.write_int(addr1, 0x0)
             break
@@ -698,6 +752,7 @@ def bio_pistol():
             mem.write_int(addr2, 0x00000064)
         except pymem.exception.MemoryWriteError as e:
             print(f"Error writing memory: {e}")
+            break
         if keyboard.is_pressed("F1"):
             mem.write_int(addr1, 0x0000000c)
             mem.write_int(addr2, 0x0000000c)
@@ -711,6 +766,7 @@ def bio_mon():
             mem.write_int(addr1, 0x00002328)
         except pymem.exception.MemoryWriteError as e:
             print(f"Error writing memory: {e}")
+            break
         if keyboard.is_pressed("F1"):
             mem.write_int(addr1, 0x00002328)
             break
@@ -729,6 +785,7 @@ def John117():
             mem.write_int(addr2, 0xFFFFFFFF)
         except pymem.exception.MemoryWriteError as e:
             print(f"Error writing memory: {e}")
+            break
         if keyboard.is_pressed("F1"):
             mem.write_int(addr2, 0x3f800000)
             break
@@ -742,6 +799,7 @@ def new_health():
             mem.write_int(addr, 0x47960000)
         except pymem.exception.MemoryWriteError as e:
             print(f"Error writing memory: {e}")
+            break
         if keyboard.is_pressed("F1"):
             mem.write_int(addr, 0x3f800000)
             break
@@ -759,6 +817,7 @@ def shotgun():
             mem.write_int(addr3, 0xFFFFFFFF)
         except pymem.exception.MemoryWriteError as e:
             print(f"Error writing memory: {e}")
+            break
         if keyboard.is_pressed("F1"):
             break
 
@@ -777,6 +836,7 @@ def no_spread():
             mem.write_int(addr4, 0xFFFFFFFF)
         except pymem.exception.MemoryWriteError as e:
             print(f"Error writing memory: {e}")
+            break
         if keyboard.is_pressed("F1"):
             mem.write_int(addr1, 0x0)
             break
@@ -790,6 +850,7 @@ def wall_pierce():
             mem.write_int(addr1, 0x00000164)
         except pymem.exception.MemoryWriteError as e:
             print(f"Error writing memory: {e}")
+            break
         if keyboard.is_pressed("F1"):
             mem.write_int(addr1, 0x0)
             break
@@ -803,6 +864,7 @@ def old_health():
             mem.write_int(addr, 0x47960000)
         except pymem.exception.MemoryWriteError as e:
             print(f"Error writing memory: {e}")
+            break
         if keyboard.is_pressed("F1"):
             mem.write_int(addr, 0x1)
             break
@@ -818,6 +880,7 @@ def oldJohn117():
             mem.write_int(addr2, 0xFFFFFFFF)
         except pymem.exception.MemoryWriteError as e:
             print(f"Error writing memory: {e}")
+            break
         if keyboard.is_pressed("F1"):
             mem.write_int(addr2, 0x3f800000)
             break
@@ -831,6 +894,7 @@ def speed():
             mem.write_int(addr1, 0x41700000)
         except pymem.exception.MemoryWriteError as e:
             print(f"Error writing memory: {e}")
+            break
         if keyboard.is_pressed("F1"):
             mem.write_int(addr1, 0x3f800000)
             break
@@ -844,6 +908,7 @@ def fuck_walls_halo():
             mem.write_int(addr1, 0xFFFF)
         except pymem.exception.MemoryWriteError as e:
             print(f"Error writing memory: {e}")
+            break
         if keyboard.is_pressed("C"):
             mem.write_int(addr1, 0x0)
             break
@@ -857,6 +922,7 @@ def fuck_gravity_halo():
             mem.write_int(addr1, 0x244)
         except pymem.exception.MemoryWriteError as e:
             print(f"Error writing memory: {e}")
+            break
         if keyboard.is_pressed("C"):
             mem.write_int(addr1, 0x0)
             break
@@ -870,6 +936,7 @@ def fuck_walls2():
             mem.write_int(addr1, 0xFFFF)
         except pymem.exception.MemoryWriteError as e:
             print(f"Error writing memory: {e}")
+            break
         if keyboard.is_pressed("C"):
             mem.write_int(addr1, 0x0)
             break
@@ -883,6 +950,7 @@ def fuck_gravity2_halo():
             mem.write_int(addr1, 0x244)
         except pymem.exception.MemoryWriteError as e:
             print(f"Error writing memory: {e}")
+            break
         if keyboard.is_pressed("C"):
             mem.write_int(addr1, 0x0)
             break
@@ -896,6 +964,7 @@ def pause_game():
             mem.write_int(addr1, 0x00000000)
         except pymem.exception.MemoryWriteError as e:
             print(f"Error writing memory: {e}")
+            break
         if keyboard.is_pressed("F1"):
             mem.write_int(addr1, 0x1)
             break
@@ -911,6 +980,7 @@ def haha_number_go_brrr():
             mem.write_int(addr2, 0x1)
         except pymem.exception.MemoryWriteError as e:
             print(f"Error writing memory: {e}")
+            break
         if keyboard.is_pressed("F1"):
             mem.write_int(addr1, 0x1)
             break
@@ -926,6 +996,7 @@ def hands():
             mem.write_int(addr2, 0x1)
         except pymem.exception.MemoryWriteError as e:
             print(f"Error writing memory: {e}")
+            break
         if keyboard.is_pressed("F1"):
             mem.write_int(addr1, 0x0)
             mem.write_int(addr2, 0x30)
@@ -946,6 +1017,7 @@ def plasma():
             mem.write_int(addr4, 0x00000164)
         except pymem.exception.MemoryWriteError as e:
             print(f"Error writing memory: {e}")
+            break
         if keyboard.is_pressed("F1"):
             break
 
@@ -999,6 +1071,7 @@ def plasma_pistol():
             mem.write_int(addr3, 0xFFFFFFFF)
         except pymem.exception.MemoryWriteError as e:
             print(f"Error writing memory: {e}")
+            break
         if keyboard.is_pressed("F1"):
             break
 
@@ -1012,6 +1085,7 @@ def isaac_health():
             mem.write_int(addr, 0x00000006)
         except pymem.exception.MemoryWriteError as e:
             print(f"Error writing memory: {e}")
+            break
         if keyboard.is_pressed("F1"):
             break
 
@@ -1025,6 +1099,7 @@ def isaac_bombs():
             mem.write_int(addr2, 0x0)
         except pymem.exception.MemoryWriteError as e:
             print(f"Error writing memory: {e}")
+            break
         if keyboard.is_pressed("F1"):
             break
 
@@ -1036,6 +1111,7 @@ def isaac_fire_rate():
             mem.write_int(addr, 0x0)
         except pymem.exception.MemoryWriteError as e:
             print(f"Error writing memory: {e}")
+            break
         if keyboard.is_pressed("F1"):
             break
 
@@ -1049,5 +1125,6 @@ def sponge_fly():
             mem.write_int(addr, 0x43fa0000)
         except pymem.exception.MemoryWriteError as e:
             print(f"Error writing memory: {e}")
+            break
         if keyboard.is_pressed("c"):
             break
