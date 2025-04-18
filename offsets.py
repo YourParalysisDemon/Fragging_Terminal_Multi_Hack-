@@ -103,3 +103,6 @@ health_offsets_south_park = [0x448, 0x110, 0x0, 0x0, 0x50, 0x438, 0x24]
 #  Risk of Rain 2
 risk_health = [0X460, 0X1A0]  # "mono-2.0-bdwgc.dll"+00770320
 risk_health2 = [0X0, 0X0, 0X0, 0X5C8, 0X70]  # 007701D0
+
+# Garfield Kart "mono.dll"
+player_speed = [0X61C, 0X18, 0X1A0]  # 001F10AC
