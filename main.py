@@ -154,6 +154,8 @@ def releasekey(hexkeycode):
     x = input(ctypes.c_ulong(1), ii_)
     ctypes.windll.user32.SendInput(1, ctypes.pointer(x), ctypes.sizeof(x))
 
+# AOB scanning will go here soon ish. 
+
 
 # Threads for pycho 1
 
@@ -420,6 +422,7 @@ def breathless_mode():  # Name from Your FBI Agent
             mem.write_int(addr2, 0x3f800000)
             mem.write_int(addr3, 0x3f800000)
             mem.write_int(addr4, 0x47960000)
+            print("Your rights have returned")
             break
 
 
@@ -1076,7 +1079,7 @@ def plasma_pistol():
             break
 
 
-# Isaac functions
+# Isaac functions needs to be fixed :(
 
 def isaac_health():
     addr = getpointeraddress(module_isaac + 0x0021E3FC, isaac_health_offsets)
