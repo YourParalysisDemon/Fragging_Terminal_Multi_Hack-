@@ -51,6 +51,7 @@ not_sure = [0X34]  # 01C40480
 noclip_offsets = [0X4D8]
 melee1_offsets = [0X512]
 melee2_offsets = [0X513]
+fly_offsets = [0XC0, 0X2C]  # 02D9C828
 player_speed_offsets = [0X10C]
 bullet_spread_offsets = [0X1B]
 bullet_spread_offsets_2 = [0X1F]  # 01C38880/0x434800c8
