@@ -39,44 +39,37 @@ for game_list in game_list:
     print(game_list)
 
 while True:
-
     game = input(Fore.RED + Back.BLACK + Style.BRIGHT + "\nEnter game title: ")
-    if game == "Psychonauts" or "psychonauts":
+    if game == "Psychonauts":
         mem = Pymem("Psychonauts")
         module1 = module_from_name(mem.process_handle, "Psychonauts.exe").lpBaseOfDll
         print("Game Found!")
         break
-
-    elif game == "Psychonauts 2" or "psychonauts2":
+    elif game == "Psychonauts 2":
         mem = Pymem("Psychonauts2-Win64-Shipping")
         module_pycho2 = module_from_name(mem.process_handle, "Psychonauts2-Win64-Shipping.exe").lpBaseOfDll
         print("Game Found!")
         break
-
-    elif game == "Halo 1" or "halo":
+    elif game == "Halo 1":
         mem = Pymem("MCC-Win64-Shipping")
         module_halo = module_from_name(mem.process_handle, "halo1.dll").lpBaseOfDll
         print("Game Found!")
         break
-
     elif game == "Bioshock infinite":
         mem = Pymem("BioShockInfinite.exe")
         module_bio = module_from_name(mem.process_handle, "BioShockInfinite.exe").lpBaseOfDll
         print("Game Found!")
         break
-
     elif game == "The binding of isaac":
         mem = Pymem("isaac-ng")
         module_isaac = module_from_name(mem.process_handle, "isaac-ng.exe").lpBaseOfDll
         print("Game Found!")
         break
-
     elif game == "Spongebob CosmicShake":
         mem = Pymem("CosmicShake-Win64-Shipping.exe")
         module_sponge = module_from_name(mem.process_handle, "CosmicShake-Win64-Shipping.exe").lpBaseOfDll
         print("Game Found!")
         break
-
     else:
         print(Fore.RED + Back.BLACK + Style.BRIGHT + "How fucking stupid are you???")
 
@@ -154,7 +147,7 @@ def releasekey(hexkeycode):
     x = input(ctypes.c_ulong(1), ii_)
     ctypes.windll.user32.SendInput(1, ctypes.pointer(x), ctypes.sizeof(x))
 
-# AOB scanning will go here soon ish. 
+# AOB scanning will go here soon ish.
 
 
 # Threads for pycho 1
