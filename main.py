@@ -11,6 +11,7 @@ from threading import Thread
 from pymem import *
 from pymem.process import *
 from pymem.ptypes import RemotePointer
+from ReadWriteMemory import ReadWriteMemory
 from time import sleep
 from time import *
 from tkinter import ttk
@@ -82,6 +83,15 @@ print("""
 ╚═╝░░╚═╝╚═╝░░╚═╝░░░╚═╝░░░╚══════╝  ╚═╝░░░░░░╚═════╝░╚═╝░░╚══╝""")
 
 
+def readpointeraddress(base, offsets):
+    remote_pointer = RemotePointer(mem.process_handle, base)
+    for offset in offsets:
+        if offset != offsets[-1]:
+            remote_pointer = RemotePointer(mem.process_handle, remote_pointer + offset)
+        else:
+            return remote_pointer.value + offset
+
+
 def getpointeraddress(base, offsets):
     remote_pointer = RemotePointer(mem.process_handle, base)
     for offset in offsets:
@@ -146,6 +156,7 @@ def releasekey(hexkeycode):
     ii_.ki = KeyBdInput(0, hexkeycode, 0x0008 | 0x0002, 0, ctypes.pointer(extra))
     x = input(ctypes.c_ulong(1), ii_)
     ctypes.windll.user32.SendInput(1, ctypes.pointer(x), ctypes.sizeof(x))
+
 
 # AOB scanning will go here soon ish.
 
@@ -420,21 +431,18 @@ def breathless_mode():  # Name from Your FBI Agent
 
 
 def stats():
-    Reader = getpointeraddress(module1 + 0x003839D8, z_offsets)
-    Reader1 = getpointeraddress(module1 + 0x00386AE0, y_offsets)
-    Reader2 = getpointeraddress(module1 + 0x003839D8, x_offsets)
-
+    addr1 = readpointeraddress(module1 + 0x003839D8, z_offsets)
+    addr2 = readpointeraddress(module1 + 0x00386AE0, y_offsets)
+    addr3 = readpointeraddress(module1 + 0x003839D8, x_offsets)
     while 1:
         try:
-            mem.read_float(Reader)
-            mem.read_float(Reader1)
-            mem.read_float(Reader2)
-            print(f"Coordinates: ({Reader}, {Reader1}, {Reader2})")
-        except pymem.exception.MemoryWriteError as e:
-            print(f"Error writing memory: {e}")
-            break
-        if keyboard.is_pressed("F1"):
-            break
+            z = mem.read_float(addr1)
+            y = mem.read_float(addr2)
+            x = mem.read_float(addr3)
+            for i in range(5):
+                print(z, y, x)
+        except:
+            print("shit broke :(")
 
 
 def god_hack():
