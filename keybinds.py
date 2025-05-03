@@ -1,4 +1,6 @@
 from main import *
+from Psychonauts_1 import *
+from Psychonauts_2 import *
 
 keyboard.add_hotkey("Z", multi_run_flip)
 keyboard.add_hotkey("-", multi_run_slow)
@@ -17,3 +19,5 @@ keyboard.add_hotkey("F", spongebob_multi_fly)
 keyboard.add_hotkey("F", multi_bio_fly)
 keyboard.add_hotkey("Z", multi_run_raz_flip)
 keyboard.add_hotkey("B", multi_run_cant_breath)
+
+
