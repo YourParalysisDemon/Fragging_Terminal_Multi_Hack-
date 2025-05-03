@@ -2,8 +2,11 @@ import keyboard
 import psutil
 import os
 from tqdm import tqdm
-from main import *
+from Pycho1 import *
 from keybinds import *
+from Psychonauts_1 import *
+from Psychonauts_2 import *
+
 
 # GUI
 pygame.init()
@@ -241,7 +244,7 @@ link1.bind("<Button-1>", lambda e: callback("https://steamcommunity.com/profiles
 link1.pack(pady=10)
 
 keyboard.add_hotkey("-", show)
-keyboard.add_hotkey("=", hide)
+keyboard.add_hotkey("+", hide)
 keyboard.add_hotkey("k", root.destroy)
 clock()
 root.mainloop()
