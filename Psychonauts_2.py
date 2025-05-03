@@ -1,4 +1,4 @@
-from Pycho1 import *
+from main import *
 from offsets import *
 
 
