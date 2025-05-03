@@ -434,15 +434,23 @@ def stats():
     addr1 = readpointeraddress(module1 + 0x003839D8, z_offsets)
     addr2 = readpointeraddress(module1 + 0x00386AE0, y_offsets)
     addr3 = readpointeraddress(module1 + 0x003839D8, x_offsets)
+    addr4 = readpointeraddress(module1 + 0x0038CBB8, health1_offsets)
     while 1:
         try:
             z = mem.read_float(addr1)
             y = mem.read_float(addr2)
             x = mem.read_float(addr3)
-            for i in range(5):
-                print(z, y, x)
-        except:
-            print("shit broke :(")
+            h = mem.read_float(addr4)
+            Read_h = ["Health", h,
+                      "Z", z,
+                      "Y", y,
+                      "X", x]
+            print("\r", Read_h, end="", flush=True)
+        except pymem.exception.MemoryReadError as e:
+            print(f"Error reading memory: {e}")
+            break
+        if keyboard.is_pressed("F1"):
+            break
 
 
 def god_hack():
