@@ -1,6 +1,7 @@
 from main import *
 from Psychonauts_1 import *
 from Psychonauts_2 import *
+from halo import *
 
 keyboard.add_hotkey("Z", multi_run_flip)
 keyboard.add_hotkey("-", multi_run_slow)
