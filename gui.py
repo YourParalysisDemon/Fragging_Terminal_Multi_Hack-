@@ -6,6 +6,7 @@ from main import *
 from keybinds import *
 from Psychonauts_1 import *
 from Psychonauts_2 import *
+from halo import *
 
 
 # GUI
