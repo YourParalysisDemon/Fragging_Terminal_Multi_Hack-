@@ -38,6 +38,7 @@ pistol_ammo_offs = [0XC, 0XD8, 0X7C4]  # 00F6648C
 salt_offs = [0X70, 0X510]  # 00F687F8
 
 # New graphics Halo 1
+npc = [0X55C]
 primary_offsets = [0X28A]
 fire_rate_offsets = [0X23A]
 shield_offsets = [0XA0]
@@ -51,7 +52,6 @@ not_sure = [0X34]  # 01C40480
 noclip_offsets = [0X4D8]
 melee1_offsets = [0X512]
 melee2_offsets = [0X513]
-fly_offsets = [0XC0, 0X2C]  # 02D9C828
 player_speed_offsets = [0X10C]
 bullet_spread_offsets = [0X1B]
 bullet_spread_offsets_2 = [0X1F]  # 01C38880/0x434800c8
@@ -68,6 +68,7 @@ X_offsets = [0X1C]  # 01C35950
 Y_offsets = [0X18]  # 01C35950
 Z_offsets = [0X20]
 shield = [0X20, 0XB8, 0XC8, 0X998, 0X10, 0XA0]
+havoc_shield = []
 
 # Isaac // isaac-ng.exe
 bomb_offsets = [0X1C0, 0X0, 0X114, 0X8C, 0X4, 0X0, 0XB70]  # 0021E508
@@ -105,5 +106,10 @@ health_offsets_south_park = [0x448, 0x110, 0x0, 0x0, 0x50, 0x438, 0x24]
 risk_health = [0X460, 0X1A0]  # "mono-2.0-bdwgc.dll"+00770320
 risk_health2 = [0X0, 0X0, 0X0, 0X5C8, 0X70]  # 007701D0
 
-# Garfield Kart "mono.dll"
-player_speed = [0X61C, 0X18, 0X1A0]  # 001F10AC
+#  TF2
+health_tf2_offsets_1 = [0X90, 0X174]
+health_tf2_offsets_2 = [0X3C0, 0X90, 0X0, 0X1C0, 0X250, 0X174]  # "engine.dll"+00479848
+health_tf2_offsets_3 = [0X88, 0X18, 0XA8, 0X18, 0X68, 0X15C]  # "engine.dll"+0072FD18
+player_name_1 = [0X38, 0X50, 0X28, 0X98, 0X0]  # "engine.dll"+00779CD8
+player_name_2 = [0X310, 0X0, 0X2C8, 0X18, 0X2C0, 0X68, 0XFC0]  # "engine.dll"+00479868
+player_name_3 = [0X50, 0X28, 0X218, 0X0]  # "engine.dll"+0053E6E8
