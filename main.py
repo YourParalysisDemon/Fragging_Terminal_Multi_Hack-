@@ -160,12 +160,24 @@ def multi_tf2():
 
 
 def stats_tf2():  # Just a little experiment :)
-    addr1 = readpointeraddress(module_tf2 + 0x006DA9F8, health_tf2_offsets)
+    addr1 = readpointeraddress(module_tf2 + 0x006DA9F8, health_tf2_offsets_1)
+    addr2 = readpointeraddress(module_tf2 + 0x00479848, health_tf2_offsets_2)
+    addr3 = readpointeraddress(module_tf2 + 0x0072FD18, health_tf2_offsets_3)
+    addr4 = readpointeraddress(module_tf2 + 0x00779CD8, player_name_1)
+    addr5 = readpointeraddress(module_tf2 + 0x00479868, player_name_2)
+    addr6 = readpointeraddress(module_tf2 + 0x0053E6E8, player_name_3)
     while 1:
         try:
-            h = mem.read_short(addr1)
-            Read_h = ["Health", h]
-            print("\r", Read_h, end="", flush=True)
+            h1 = mem.read_short(addr1)
+            h2 = mem.read_short(addr2)
+            h3 = mem.read_short(addr3)
+            p1 = mem.read_string(addr4)
+            p2 = mem.read_string(addr5)
+            p3 = mem.read_string(addr6)
+            R = [p1, h1,
+                 p2, h2,
+                 p3, h3]
+            print("\r", R, end="", flush=True)
         except pymem.exception.MemoryReadError as e:
             print(f"Error reading memory: {e}")
             break
