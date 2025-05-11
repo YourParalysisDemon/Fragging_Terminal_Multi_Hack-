@@ -113,3 +113,10 @@ health_tf2_offsets_3 = [0X88, 0X18, 0XA8, 0X18, 0X68, 0X15C]  # "engine.dll"+007
 player_name_1 = [0X38, 0X50, 0X28, 0X98, 0X0]  # "engine.dll"+00779CD8
 player_name_2 = [0X310, 0X0, 0X2C8, 0X18, 0X2C0, 0X68, 0XFC0]  # "engine.dll"+00479868
 player_name_3 = [0X50, 0X28, 0X218, 0X0]  # "engine.dll"+0053E6E8
+
+#  Halo ODST
+odst_primary_ammo = [0X232]  # "halo3odst.dll"+0109798C
+odst_primary_firerate = [0X1BA]  # "halo3odst.dll"+0109798C
+odst_shield = [0XEC]  # "halo3odst.dll"+0109795C
+odst_z = [0X58]  # "halo3odst.dll"+0109795C
+odst_player_size = [0X8C]  # "halo3odst.dll"+0109795C
