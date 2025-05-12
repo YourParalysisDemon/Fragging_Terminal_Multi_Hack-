@@ -67,7 +67,7 @@ while True:
         module_isaac = module_from_name(mem.process_handle, "isaac-ng.exe").lpBaseOfDll
         print("Game Found!")
         break
-    elif game == "TF2":
+    elif game == "TF2":  # Do not attach to a VAC secured server retard. Only run this code in -insecure mode.  
         mem = Pymem("tf_win64")
         module_tf2 = module_from_name(mem.process_handle, "engine.dll").lpBaseOfDll
         print("Game Found!")
@@ -159,7 +159,7 @@ def multi_tf2():
     new_thread.start()
 
 
-def stats_tf2():  # Just a little experiment :)
+def stats_tf2():  # Just a little experiment :) still heavily a wip. Will not work in VAC secured servers so don't be stupid. 
     addr1 = readpointeraddress(module_tf2 + 0x006DA9F8, health_tf2_offsets_1)
     addr2 = readpointeraddress(module_tf2 + 0x00479848, health_tf2_offsets_2)
     addr3 = readpointeraddress(module_tf2 + 0x0072FD18, health_tf2_offsets_3)
