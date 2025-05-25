@@ -49,7 +49,7 @@ shotgun_trig_offsets = [0X280]
 plasma_pistol_offsets = [0X144, 0XB5]
 not_sure = [0X34]  # 01C40480
 # These fucking sucked to find Halo 1
-noclip_offsets = [0X4D8]
+noclip_offsets = [0X4D8]  # 0X01C35AB0 or 0X01C38EB0
 melee1_offsets = [0X512]
 melee2_offsets = [0X513]
 player_speed_offsets = [0X10C]
