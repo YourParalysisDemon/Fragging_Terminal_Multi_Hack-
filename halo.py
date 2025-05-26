@@ -42,7 +42,7 @@ def multi_run_clip2():
 
 
 def multi_run_clip():
-    new_thread = Thread(target=fuck_walls, daemon=True)
+    new_thread = Thread(target=fuck_walls_halo, daemon=True)
     new_thread.start()
 
 
@@ -254,7 +254,7 @@ def fuck_walls_halo():
 
 
 def fuck_gravity_halo():
-    addr1 = getpointeraddress(module_halo + 0x01C35950, noclip_offsets2)
+    addr1 = getpointeraddress(module_halo + 0x01C35AB0, noclip_offsets2)
 
     while 1:
         try:
@@ -268,7 +268,7 @@ def fuck_gravity_halo():
 
 
 def fuck_walls2():
-    addr1 = getpointeraddress(module_halo + 0x01C35950, noclip_offsets2)
+    addr1 = getpointeraddress(module_halo + 0x01C35AB0, noclip_offsets2)
 
     while 1:
         try:
@@ -282,7 +282,7 @@ def fuck_walls2():
 
 
 def fuck_gravity2_halo():
-    addr1 = getpointeraddress(module_halo + 0x01C35950, noclip_offsets2)
+    addr1 = getpointeraddress(module_halo + 0x01C35AB0, noclip_offsets2)
 
     while 1:
         try:
