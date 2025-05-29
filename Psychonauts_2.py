@@ -240,3 +240,11 @@ def clock_stop():
         if keyboard.is_pressed("F1"):
             mem.write_int(addr1, 0x3f800000)
             break
+
+
+keyboard.add_hotkey("Z", multi_run_flip)
+keyboard.add_hotkey("-", multi_run_slow)
+keyboard.add_hotkey("+", multi_run_fast)
+keyboard.add_hotkey("9", multi_run_stop)
+keyboard.add_hotkey("l", multi_run_spam)
+keyboard.add_hotkey("F", multi_run_fuck_gravity)
