@@ -414,3 +414,8 @@ def plasma_pistol():
         if keyboard.is_pressed("F1"):
             break
 
+
+keyboard.add_hotkey("5", multi_run_117)
+keyboard.add_hotkey("6", multi_run_plasma)
+keyboard.add_hotkey("V", multi_run_clip)
+
