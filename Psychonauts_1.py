@@ -362,3 +362,10 @@ def small_raz():
             mem.write_int(addr2, 0x3f800000)
             break
 
+
+keyboard.add_hotkey("G", multi_run_walls)
+keyboard.add_hotkey("F", multi_run_gravity)
+keyboard.add_hotkey("1", tele_main_lodge)
+keyboard.add_hotkey("Z", multi_run_raz_flip)
+keyboard.add_hotkey("B", multi_run_cant_breath)
+
