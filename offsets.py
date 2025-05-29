@@ -49,7 +49,7 @@ shotgun_trig_offsets = [0X280]
 plasma_pistol_offsets = [0X144, 0XB5]
 not_sure = [0X34]  # 01C40480
 # These fucking sucked to find Halo 1
-noclip_offsets = [0X4D8]  # 0X01C35AB0 or 0X01C38EB0
+noclip_offsets = [0X4D8]
 melee1_offsets = [0X512]
 melee2_offsets = [0X513]
 player_speed_offsets = [0X10C]
@@ -120,3 +120,8 @@ odst_primary_firerate = [0X1BA]  # "halo3odst.dll"+0109798C
 odst_shield = [0XEC]  # "halo3odst.dll"+0109795C
 odst_z = [0X58]  # "halo3odst.dll"+0109795C
 odst_player_size = [0X8C]  # "halo3odst.dll"+0109795C
+
+# Fallout 3
+z_offsets_fallout = [0XDC8]  # 0X00E9E8D4
+y_offsets_fallout = [0XDC4]  # 0X00E9E8D4
+x_offsets_fallout = [0XDC0]  # 0X00E9E8D4
