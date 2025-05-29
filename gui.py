@@ -3,7 +3,6 @@ import psutil
 import os
 from tqdm import tqdm
 from main import *
-from keybinds import *
 from Psychonauts_1 import *
 from Psychonauts_2 import *
 from halo import *
