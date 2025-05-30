@@ -82,6 +82,11 @@ while True:
         module_sponge = module_from_name(mem.process_handle, "metro.exe").lpBaseOfDll
         print("Game Found!")
         break
+    elif game == "Fallout 3":
+        mem = Pymem("Fallout3")
+        module_fallout = module_from_name(mem.process_handle, "Fallout3.exe").lpBaseOfDll
+        print("Game Found!")
+        break
     else:
         print(Fore.RED + Back.BLACK + Style.BRIGHT + "How fucking stupid are you???")
 
