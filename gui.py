@@ -2,11 +2,12 @@ import keyboard
 import psutil
 import os
 from tqdm import tqdm
-from main import *
+from Pycho1 import *
 from Psychonauts_1 import *
 from Psychonauts_2 import *
 from halo import *
-
+from Metro import *
+from Bioshock_infinite import *
 
 # GUI
 pygame.init()
@@ -57,6 +58,8 @@ tab5 = ttk.Frame(notebook)
 tab6 = ttk.Frame(notebook)
 tab7 = ttk.Frame(notebook)
 tab8 = ttk.Frame(notebook)
+tab9 = ttk.Frame(notebook)
+tab10 = ttk.Frame(notebook)
 
 
 # tabs to the notebook
@@ -68,6 +71,8 @@ notebook.add(tab5, text='Halo1 new')
 notebook.add(tab6, text='Halo1 old')
 notebook.add(tab7, text='Isaac')
 notebook.add(tab8, text='CosmicShake')
+notebook.add(tab9, text='Fallout 3')
+notebook.add(tab10, text='Metro 2033')
 
 
 # first tab pycho 1
@@ -105,7 +110,7 @@ button9_tab1 = tk.Button(tab1, text="Flip Gravity", bg='black', fg='red', cursor
 
 button9_tab1.pack(pady=10)
 
-button10_tab1 = tk.Button(tab1, text="Exit", bg='black', fg='red', cursor="cross", command=restart_program)
+button10_tab1 = tk.Button(tab1, text="Restart exe", bg='black', fg='red', cursor="cross", command=restart_program)
 
 button10_tab1.pack(pady=10)
 
@@ -129,14 +134,14 @@ button5_tab2.pack(pady=10)
 button6_tab2 = tk.Button(tab2, text="Flip Gravity", bg='black', fg='red', cursor="cross", command=multi_run_flip)
 button6_tab2.pack(pady=10)
 
-button7_tab2 = tk.Button(tab2, text="Exit", bg='black', fg='red', cursor="cross", command=root.destroy)
+button7_tab2 = tk.Button(tab2, text="Restart exe", bg='black', fg='red', cursor="cross", command=restart_program)
 button7_tab2.pack(pady=10)
 
 # three tab dev/info
 label1_tab4 = tk.Label(tab3, text="Hello and thank you for using my software.")
 label1_tab4.pack(pady=10)
 
-# tab four bioshock
+# tab for bioshock
 button1_tab4 = tk.Button(tab4, text="Pistol Ammo", bg='black', fg='red', cursor="cross", command=multi_bio_pistol)
 button1_tab4.pack(pady=10)
 
@@ -146,6 +151,20 @@ button2_tab4.pack(pady=10)
 button3_tab4 = tk.Button(tab4, text="Fuck Gravity", bg='black', fg='red', cursor="cross",
                          command=multi_bio_fly)
 button3_tab4.pack(pady=10)
+
+# tab for metro 2033
+button1_tab10 = tk.Button(tab10, text="Bullet go brrr", bg='black', fg='red', cursor="cross", command=multi_run_primary)
+button1_tab10.pack(pady=10)
+button2_tab10 = tk.Button(tab10, text="Cash", bg='black', fg='red', cursor="cross", command=multi_run_money)
+button2_tab10.pack(pady=10)
+button3_tab10 = tk.Button(tab10, text="FOV", bg='black', fg='red', cursor="cross", command=multi_run_fov)
+button3_tab10.pack(pady=10)
+button4_tab10 = tk.Button(tab10, text="FLY Tower", bg='black', fg='red', cursor="cross", command=multi_run_z)
+button4_tab10.pack(pady=10)
+button5_tab10 = tk.Button(tab10, text="FLY Dead city", bg='black', fg='red', cursor="cross", command=multi_run_zd)
+button5_tab10.pack(pady=10)
+button6_tab10 = tk.Button(tab10, text="Restart exe", bg='black', fg='red', cursor="cross", command=restart_program)
+button6_tab10.pack(pady=10)
 
 # tabs for halo 1
 
@@ -202,8 +221,8 @@ button5_tab6 = tk.Button(tab6, text="Stats", bg='black', fg='red', cursor="cross
 button5_tab6.pack(pady=10)
 
 # isaac tab
-# button1_tab7 = tk.Button(tab7, text="Health", bg='black', fg='red', cursor="cross", command=multi_isaac_health)
-# button1_tab7.pack(pady=10)
+button1_tab7 = tk.Button(tab7, text="Health", bg='black', fg='red', cursor="cross", command=multi_isaac_health)
+button1_tab7.pack(pady=10)
 
 # button2_tab7 = tk.Button(tab7, text="Bombs", bg='black', fg='red', cursor="cross", command=multi_isaac_bomb)
 # button2_tab7.pack(pady=10)
@@ -212,8 +231,8 @@ button5_tab6.pack(pady=10)
 # button3_tab7.pack(pady=10)
 
 # Spongebob CosmicShake
-# button1_tab8 = tk.Button(tab8, text="Fly", bg='black', fg='red', cursor="cross", command=spongebob_multi_fly)
-# button1_tab8.pack(pady=10)
+button1_tab8 = tk.Button(tab8, text="Fly", bg='black', fg='red', cursor="cross", command=multi_tf2)
+button1_tab8.pack(pady=10)
 
 # Clock
 time_label = tk.Label(tab3, font=("Arial", 10), fg="Black", bg="Red")
