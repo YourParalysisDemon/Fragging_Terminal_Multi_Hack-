@@ -31,10 +31,9 @@ flip_gravity_offsets = [0X8, 0X8, 0X190, 0X148]
 clock_offsets = [0XE8, 0XE0, 0X328]
 
 # Bioshock infinte
-
 fly_offs = [0X74, 0XF0]  # 00358660
 money_offs = [0X398, 0X50C]  # 00FA2B98
-pistol_ammo_offs = [0XC, 0XD8, 0X7C4]  # 00F6648C
+pistol_ammo_offs = [0X200, 0X234, 0X7C4]  # 00F68B40
 salt_offs = [0X70, 0X510]  # 00F687F8
 
 # New graphics Halo 1
@@ -73,7 +72,7 @@ havoc_shield = []
 # Isaac // isaac-ng.exe
 bomb_offsets = [0X1C0, 0X0, 0X114, 0X8C, 0X4, 0X0, 0XB70]  # 0021E508
 bomb_timer_offsets = [0X134, 0X0, 0X114, 0X14, 0X0, 0X7C, 0X4, 0X0, 0XCE4]  # 0021E598
-isaac_health_offsets = [0X220, 0x7C, 0X4, 0X8C, 0X8C, 0X4, 0X0, 0XB54]  # 0021E3FC
+isaac_health_offsets = [0X3DA4C, 0X1294]  # "isaac-ng.exe"+007FD65C
 isaac_fire_rate_offsets = [0X5CC, 0XB8, 0XCD0]  # 0021A1F4
 
 #  spongebob cosmic shake
@@ -85,7 +84,7 @@ fov_offsets = [0x0]
 z_offsets_metro = [0XE0, 0X20, 0X100, 0XEC]
 health_offsets_metro = [0X38, 0X2A8]
 jump_offsets = [0X38, 0X16F8]
-movement_offsets = [0X38, 0X16F0]
+movement_offsets_metro = [0X38, 0X16F0]
 dead_z_offsets = [0X10, 0X8, 0X520, 0X738, 0X51C]
 money = [0X10, 0XB8, 0X4F4]
 
@@ -105,14 +104,6 @@ health_offsets_south_park = [0x448, 0x110, 0x0, 0x0, 0x50, 0x438, 0x24]
 #  Risk of Rain 2
 risk_health = [0X460, 0X1A0]  # "mono-2.0-bdwgc.dll"+00770320
 risk_health2 = [0X0, 0X0, 0X0, 0X5C8, 0X70]  # 007701D0
-
-#  TF2
-health_tf2_offsets_1 = [0X90, 0X174]
-health_tf2_offsets_2 = [0X3C0, 0X90, 0X0, 0X1C0, 0X250, 0X174]  # "engine.dll"+00479848
-health_tf2_offsets_3 = [0X88, 0X18, 0XA8, 0X18, 0X68, 0X15C]  # "engine.dll"+0072FD18
-player_name_1 = [0X38, 0X50, 0X28, 0X98, 0X0]  # "engine.dll"+00779CD8
-player_name_2 = [0X310, 0X0, 0X2C8, 0X18, 0X2C0, 0X68, 0XFC0]  # "engine.dll"+00479868
-player_name_3 = [0X50, 0X28, 0X218, 0X0]  # "engine.dll"+0053E6E8
 
 #  Halo ODST
 odst_primary_ammo = [0X232]  # "halo3odst.dll"+0109798C
