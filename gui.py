@@ -8,6 +8,7 @@ from Psychonauts_2 import *
 from halo import *
 from Metro import *
 from Bioshock_infinite import *
+from isaac import *
 
 # GUI
 pygame.init()
