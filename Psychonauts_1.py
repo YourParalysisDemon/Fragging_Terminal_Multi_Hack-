@@ -20,66 +20,6 @@ def getpointeraddress(base, offsets):
             return remote_pointer.value + offset
 
 
-endInput = ctypes.windll.user32.SendInput
-
-# C struct redefinitions
-PUL = ctypes.POINTER(ctypes.c_ulong)
-
-
-class KeyBdInput(ctypes.Structure):
-    _fields_ = [("wVk", ctypes.c_ushort),
-                ("wScan", ctypes.c_ushort),
-                ("dwFlags", ctypes.c_ulong),
-                ("time", ctypes.c_ulong),
-                ("dwExtraInfo", PUL)]
-
-
-class HardwareInput(ctypes.Structure):
-    _fields_ = [("uMsg", ctypes.c_ulong),
-                ("wParamL", ctypes.c_short),
-                ("wParamH", ctypes.c_ushort)]
-
-
-class MouseInput(ctypes.Structure):
-    _fields_ = [("dx", ctypes.c_long),
-                ("dy", ctypes.c_long),
-                ("mouseData", ctypes.c_ulong),
-                ("dwFlags", ctypes.c_ulong),
-                ("time", ctypes.c_ulong),
-                ("dwExtraInfo", PUL)]
-
-
-class input_i(ctypes.Union):
-    _fields_ = [("ki", KeyBdInput),
-                ("mi", MouseInput),
-                ("hi", HardwareInput)]
-
-
-class input(ctypes.Structure):
-    _fields_ = [("type", ctypes.c_ulong),
-                ("ii", input_i)]
-
-
-# Actuals Functions
-def presskey(hexkeycode):
-    extra = ctypes.c_ulong(0)
-    ii_ = input_i()
-    ii_.ki = KeyBdInput(0, hexkeycode, 0x0008, 0, ctypes.pointer(extra))
-    x = input(ctypes.c_ulong(1), ii_)
-    ctypes.windll.user32.SendInput(1, ctypes.pointer(x), ctypes.sizeof(x))
-
-
-def releasekey(hexkeycode):
-    extra = ctypes.c_ulong(0)
-    ii_ = input_i()
-    ii_.ki = KeyBdInput(0, hexkeycode, 0x0008 | 0x0002, 0, ctypes.pointer(extra))
-    x = input(ctypes.c_ulong(1), ii_)
-    ctypes.windll.user32.SendInput(1, ctypes.pointer(x), ctypes.sizeof(x))
-
-
-# AOB scanning will go here soon ish.
-
-
 # Threads for pycho 1
 
 
@@ -367,5 +307,6 @@ keyboard.add_hotkey("G", multi_run_walls)
 keyboard.add_hotkey("F", multi_run_gravity)
 keyboard.add_hotkey("1", tele_main_lodge)
 keyboard.add_hotkey("Z", multi_run_raz_flip)
+
 keyboard.add_hotkey("B", multi_run_cant_breath)
 
