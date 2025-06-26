@@ -9,7 +9,7 @@
 + Spongebob CosmicShake
 + Metro 2033
 
-![Screenshot (774)](https://github.com/user-attachments/assets/c0063cd1-6b0d-46df-a4de-a3e59d4a0d9a)
+![Screenshot (908)](https://github.com/user-attachments/assets/db0767b9-b167-4eb5-83ad-e09c5c7511f7)
 ![ezgif com-crop (1)](https://github.com/user-attachments/assets/58b77f7d-4029-4755-9101-c1947150d8f0)
 
 
