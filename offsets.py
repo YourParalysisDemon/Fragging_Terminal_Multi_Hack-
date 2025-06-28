@@ -116,3 +116,15 @@ odst_player_size = [0X8C]  # "halo3odst.dll"+0109795C
 z_offsets_fallout = [0XDC8]  # 0X00E9E8D4
 y_offsets_fallout = [0XDC4]  # 0X00E9E8D4
 x_offsets_fallout = [0XDC0]  # 0X00E9E8D4
+
+#  DRG_
+drg_gunner_ammo = [0X690, 0X50, 0X6A0]  # "FSD-Win64-Shipping.exe"+060481F0
+drg_gunner_firerate = []
+
+drg_player_shield = []
+drg_player_health = []
+drg_player_gravity = []
+
+drg_player_x = []
+drg_player_y = []
+drg_player_z = [0X30, 0X250, 0X38, 0X8, 0X80, 0X1D8]  # "FSD-Win64-Shipping.exe"+0648B0A0
