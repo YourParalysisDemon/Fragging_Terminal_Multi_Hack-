@@ -112,7 +112,19 @@ odst_shield = [0XEC]  # "halo3odst.dll"+0109795C
 odst_z = [0X58]  # "halo3odst.dll"+0109795C
 odst_player_size = [0X8C]  # "halo3odst.dll"+0109795C
 
-# Fallout 3
+#  Fallout 3
 z_offsets_fallout = [0XDC8]  # 0X00E9E8D4
 y_offsets_fallout = [0XDC4]  # 0X00E9E8D4
 x_offsets_fallout = [0XDC0]  # 0X00E9E8D4
+
+#  DRG_
+DRG_gunner_ammo = [0X690, 0X50, 0X6A0]  # "FSD-Win64-Shipping.exe"+060481F0
+DRG_gunner_firerate = []
+
+DRG_player_shield = []
+DRG_player_health = []
+DRG_player_gravity = []
+
+DRG_player_x = []
+DRG_player_y = []
+DRG_player_z = [0X30, 0X250, 0X38, 0X8, 0X80, 0X1D8]  # "FSD-Win64-Shipping.exe"+0648B0A0
