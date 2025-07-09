@@ -130,4 +130,11 @@ drg_player_y = []
 drg_player_z = [0X30, 0X250, 0X38, 0X8, 0X80, 0X1D8]  # "FSD-Win64-Shipping.exe"+0648B0A0
 
 #  Atlyss
-atlyss_player_size = [0XF0, 0XE80, 0XB0]  # "UnityPlayer.dll"+01D33C68
+atlyss_player_size_x = [0XF0, 0XE80, 0XB0]  # "UnityPlayer.dll"+01D33C68
+atlyss_player_size_y = [0X, 0X, 0X]  # "UnityPlayer.dll"+
+atlyss_player_size_z = [0X, 0X, 0X]  # "UnityPlayer.dll"+
+atlyss_player_health = [0X, 0X, 0X]  # "UnityPlayer.dll"+
+atlyss_player_fly = [0X, 0X, 0X]  # "UnityPlayer.dll"+
+
+
+
