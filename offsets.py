@@ -128,3 +128,7 @@ drg_player_gravity = []
 drg_player_x = []
 drg_player_y = []
 drg_player_z = [0X30, 0X250, 0X38, 0X8, 0X80, 0X1D8]  # "FSD-Win64-Shipping.exe"+0648B0A0
+
+#  Halo Wars 1
+hw_money = [0X90, 0X8, 0X110]  # "xgameFinal.exe"+014FA250
+hw_base_production_rate = [0X0, 0X8E8, 0X1C]  # "xgameFinal.exe"+01623CC0
