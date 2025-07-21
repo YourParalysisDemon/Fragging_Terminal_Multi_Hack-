@@ -136,5 +136,8 @@ atlyss_player_size_z = [0X, 0X, 0X]  # "UnityPlayer.dll"+
 atlyss_player_health = [0X, 0X, 0X]  # "UnityPlayer.dll"+
 atlyss_player_fly = [0X, 0X, 0X]  # "UnityPlayer.dll"+
 
+#  Halo Wars 1
+hw_money = [0X90, 0X8, 0X110]  # "xgameFinal.exe"+014FA250
+hw_base_production_rate = [0X0, 0X8E8, 0X1C]  # "xgameFinal.exe"+01623CC0
 
 
