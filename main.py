@@ -36,7 +36,9 @@ game_list = ["Games Available",
              "● Bioshock infinite",
              "● The binding of isaac",
              "● Spongebob CosmicShake",
-             "● Metro 2033"]
+             "● Metro 2033",
+             "● Company of Heroes"]
+
 for game_list in game_list:
     print(game_list)
 
@@ -85,6 +87,11 @@ while True:
     elif game == "Fallout 3":
         mem = Pymem("Fallout3")
         module_fallout = module_from_name(mem.process_handle, "Fallout3.exe").lpBaseOfDll
+        print("Game Found!")
+        break
+    elif game == "Company of Heroes":
+        mem = Pymem("RelicCOH")
+        module = module_from_name(mem.process_handle, "WW2Mod.dll").lpBaseOfDll
         print("Game Found!")
         break
     else:
