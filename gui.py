@@ -9,6 +9,7 @@ from halo import *
 from Metro import *
 from Bioshock_infinite import *
 from isaac import *
+from company import *
 
 # GUI
 pygame.init()
