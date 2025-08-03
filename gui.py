@@ -1,8 +1,10 @@
+import tkinter
 import keyboard
 import psutil
 import os
 from tqdm import tqdm
-import Pycho1
+import main
+import importlib.util
 from Psychonauts_1 import *
 from Psychonauts_2 import *
 from halo import *
@@ -11,6 +13,7 @@ from Bioshock_infinite import *
 from isaac import *
 from TF2 import *
 from company import *
+from spongebob import *
 
 
 def restart_program(self):
@@ -251,9 +254,13 @@ def main_menu():
     class Frame6(tk.Frame):
         def __init__(self, parent):  # The binding of isaac
             super().__init__(parent, background="black")
+            label = tk.Label(self, text="Adjust Health", bg='black', fg='red', font=("Arial", 16))
+            label.pack(pady=20)
 
-            button1 = tk.Button(self, text="Health", bg='black', fg='red', cursor="cross", command=multi_isaac_health)
-            button1.pack(pady=10)
+            slider1 = tk.Scale(self, from_=0x3f800000, to=0x43480000, orient=tkinter.HORIZONTAL,
+                               bg='black', fg='red', cursor="cross", command=multi_isaac_health)
+            slider1.set(6)
+            slider1.pack(pady=10)
 
             # button2 = tk.Button(tab7, text="Bombs", bg='black', fg='red', cursor="cross", command=multi_isaac_bomb)
             # button2.pack(pady=10)
@@ -266,11 +273,11 @@ def main_menu():
             super().__init__(parent, background="black")
 
             button1 = tk.Button(self, text="Fly", bg='black', fg='red', cursor="cross",
-                                command=self.destroy)  # I forget :(
+                                command=spongebob_multi_fly)  # I forget :(
             button1.pack(pady=10)
 
     class Frame8(tk.Frame):
-        def __init__(self, parent):  # Metro 2033
+        def __init__(self, parent):
             super().__init__(parent, background="black")
             label = tk.Label(self, text="Metro 2033", font=("Arial", 16))
             label.pack(pady=20)
@@ -356,11 +363,11 @@ def main_menu():
 
 while True:
     menu = input(Fore.RED + Back.BLACK + Style.BRIGHT + "\nLaunch GUI?: ")
-    if menu == "Yes":
+    if menu == "Yes".casefold():
         print("Launching GUI!")
         main_menu()
         break
 
     else:
-        if menu == "No":
+        if menu == "No".casefold():
             break
