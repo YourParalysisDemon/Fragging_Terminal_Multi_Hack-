@@ -9,6 +9,8 @@
 + Spongebob CosmicShake
 + Metro 2033
 + Company of Heroes
++ South Park tfbw
++ Risk of rain 2 (wip)
 
 
 ![Screenshot (908)](https://github.com/user-attachments/assets/db0767b9-b167-4eb5-83ad-e09c5c7511f7)
