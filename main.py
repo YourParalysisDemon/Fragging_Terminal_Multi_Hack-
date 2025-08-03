@@ -19,7 +19,6 @@ from colorama import Fore, Back, Style
 from offsets import *
 
 colorama.init()
-
 game_list = [Fore.RED + Back.BLACK + Style.BRIGHT + "Games Available",
              "● Psychonauts",
              "● Psychonauts 2",
@@ -35,52 +34,52 @@ for game_list in game_list:
 
 while True:
     game = input(Fore.RED + Back.BLACK + Style.BRIGHT + "\nEnter game title: ")
-    if game == "Psychonauts":
+    if game == "Psychonauts".casefold():
         mem = Pymem("Psychonauts")
         module1 = module_from_name(mem.process_handle, "Psychonauts.exe").lpBaseOfDll
         print("Game Found!")
         break
-    elif game == "Psychonauts 2":
+    elif game == "Psychonauts 2".casefold():
         mem = Pymem("Psychonauts2-Win64-Shipping")
         module_pycho2 = module_from_name(mem.process_handle, "Psychonauts2-Win64-Shipping.exe").lpBaseOfDll
         print("Game Found!")
         break
-    elif game == "Halo 1":
+    elif game == "Halo 1".casefold():
         mem = Pymem("MCC-Win64-Shipping")
         module_halo = module_from_name(mem.process_handle, "halo1.dll").lpBaseOfDll
         print("Game Found!")
         break
-    elif game == "Bioshock infinite":
+    elif game == "Bioshock infinite".casefold():
         mem = Pymem("BioShockInfinite.exe")
         module_bio = module_from_name(mem.process_handle, "BioShockInfinite.exe").lpBaseOfDll
         print("Game Found!")
         break
-    elif game == "The binding of isaac":
+    elif game == "The binding of isaac".casefold():
         mem = Pymem("isaac-ng")
         module_isaac = module_from_name(mem.process_handle, "isaac-ng.exe").lpBaseOfDll
         print("Game Found!")
         break
-    elif game == "TF2":  # Do not attach to a VAC secured server retard. Only run this code in -insecure mode.
+    elif game == "TF2".casefold():  # Do not attach to a VAC secured server retard. Only run this code in -insecure mode.
         mem = Pymem("tf_win64")
         module_tf2 = module_from_name(mem.process_handle, "engine.dll").lpBaseOfDll
         print("Game Found!")
         break
-    elif game == "Spongebob CosmicShake":
+    elif game == "Spongebob CosmicShake".casefold():
         mem = Pymem("CosmicShake-Win64-Shipping.exe")
         module_sponge = module_from_name(mem.process_handle, "CosmicShake-Win64-Shipping.exe").lpBaseOfDll
         print("Game Found!")
         break
-    elif game == "Metro 2033":
+    elif game == "Metro 2033".casefold():
         mem = Pymem("metro")
         module_sponge = module_from_name(mem.process_handle, "metro.exe").lpBaseOfDll
         print("Game Found!")
         break
-    elif game == "Fallout 3":
+    elif game == "Fallout 3".casefold():
         mem = Pymem("Fallout3")
         module_fallout = module_from_name(mem.process_handle, "Fallout3.exe").lpBaseOfDll
         print("Game Found!")
         break
-    elif game == "Company of Heroes":
+    elif game == "Company of Heroes".casefold():
         mem = Pymem("RelicCOH")
         module = module_from_name(mem.process_handle, "WW2Mod.dll").lpBaseOfDll
         print("Game Found!")
@@ -113,5 +112,3 @@ def getpointeraddress(base, offsets):
             remote_pointer = RemotePointer(mem.process_handle, remote_pointer.value + offset)
         else:
             return remote_pointer.value + offset
-
-
