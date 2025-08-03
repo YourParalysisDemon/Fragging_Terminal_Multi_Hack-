@@ -14,6 +14,7 @@ from isaac import *
 from TF2 import *
 from company import *
 from spongebob import *
+from southpark import  *
 
 
 def restart_program(self):
@@ -43,7 +44,7 @@ def main_menu():
 
             self.options = ["Halo CE New", "Halo CE Old", "Psychonauts", "Psychonauts 2", "Bioshock infinite",
                             "The binding of isaac", "Spongebob CosmicShake", "Metro 2033", "DEV Page",
-                            "Company of Heroes"]
+                            "Company of Heroes", "South Park"]
             self.current_frame = None
 
             self.selected_option = tk.StringVar(value=self.options[0])
@@ -87,6 +88,8 @@ def main_menu():
                 self.current_frame = Frame9(self)
             elif selected_option == "Company of Heroes":
                 self.current_frame = Frame10(self)
+            elif selected_option == "South Park":
+                self.current_frame = Frame11(self)
 
             self.current_frame.pack(fill="both", expand=True)
 
@@ -355,6 +358,14 @@ def main_menu():
             button4 = tk.Button(self, text="Population Cap", bg='black', fg='red', cursor="cross",
                                 command=multi_run_pop_coh)
             button4.pack(pady=10)
+
+    class Frame11(tk.Frame):
+        def __init__(self, parent):  # South Park
+            super().__init__(parent, background="black")
+
+            button1 = tk.Button(self, text="Health", bg='black', fg='red', cursor="cross",
+                                command=southpark_multi_health)
+            button1.pack(pady=10)
 
     if __name__ == "__main__":
         app = App()
