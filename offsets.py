@@ -97,6 +97,9 @@ gas_offsets_coh = [0x0, 0x10, 0x30, 0x18, 0x268]
 ammo_offsets_coh = [0x0, 0x26C]
 cap_offsets_coh = [0x0, 0x4E8]
 command_offsets_coh = [0X0, 0X274]
+command_offsets = [0X0, 0X274]
+camera_1 = [0X314]  # "RelicCOH.exe"+00901EB8
+camera_2 = [0X318]  # "RelicCOH.exe"+00901EB8
 
 #  South Park
 health_offsets_south_park = [0x448, 0x110, 0x0, 0x0, 0x50, 0x438, 0x24]
