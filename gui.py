@@ -14,7 +14,7 @@ from isaac import *
 from TF2 import *
 from company import *
 from spongebob import *
-from southpark import  *
+from SouthPark import *
 
 
 def restart_program(self):
@@ -156,7 +156,7 @@ def main_menu():
             button5 = tk.Button(self, text="Pause", bg='black', fg='red', cursor="cross", command=multi_run_pause)
             button5.pack(pady=10)
 
-            button5 = tk.Button(self, text="Stats", bg='black', fg='red', cursor="cross", command=multi_run_stats)
+            button5 = tk.Button(self, text="Pause NPC", bg='black', fg='red', cursor="cross", command=multi_run_ai)
             button5.pack(pady=10)
 
     class Frame3(tk.Frame):
@@ -200,8 +200,8 @@ def main_menu():
 
             button9.pack(pady=10)
 
-            button10 = tk.Button(self, text="Restart exe", bg='black', fg='red', cursor="cross",
-                                 command=restart_program)
+            button10 = tk.Button(self, text="Teleport", bg='black', fg='red', cursor="cross",
+                                 command=multi_run_raz_tele)
 
             button10.pack(pady=10)
 
@@ -257,19 +257,19 @@ def main_menu():
     class Frame6(tk.Frame):
         def __init__(self, parent):  # The binding of isaac
             super().__init__(parent, background="black")
-            label = tk.Label(self, text="Adjust Health", bg='black', fg='red', font=("Arial", 16))
-            label.pack(pady=20)
 
-            slider1 = tk.Scale(self, from_=0x3f800000, to=0x43480000, orient=tkinter.HORIZONTAL,
-                               bg='black', fg='red', cursor="cross", command=multi_isaac_health)
-            slider1.set(6)
-            slider1.pack(pady=10)
+            button1 = tk.Button(self, text="GodMode", bg='black', fg='red', cursor="cross", command=multi_isaac_health)
+            button1.pack(pady=10)
 
-            # button2 = tk.Button(tab7, text="Bombs", bg='black', fg='red', cursor="cross", command=multi_isaac_bomb)
-            # button2.pack(pady=10)
+            button2 = tk.Button(self, text="Set health", bg='black', fg='red',
+                                cursor="cross", command=multi_isaac_health_set)
+            button2.pack(pady=10)
 
-            # button3 = tk.Button(tab7, text="Fire rate", bg='black', fg='red', cursor="cross", command=multi_isaac_fire)
+            # button3 = tk.Button(tab7, text="Bombs", bg='black', fg='red', cursor="cross", command=multi_isaac_bomb)
             # button3.pack(pady=10)
+
+            button4 = tk.Button(self, text="Fire rate", bg='black', fg='red', cursor="cross", command=multi_isaac_fire)
+            button4.pack(pady=10)
 
     class Frame7(tk.Frame):
         def __init__(self, parent):  # Spongebob CosmicShake
@@ -358,6 +358,10 @@ def main_menu():
             button4 = tk.Button(self, text="Population Cap", bg='black', fg='red', cursor="cross",
                                 command=multi_run_pop_coh)
             button4.pack(pady=10)
+
+            button5 = tk.Button(self, text="Zoom", bg='black', fg='red', cursor="cross",
+                                command=multi_run_zoom_coh)
+            button5.pack(pady=10)
 
     class Frame11(tk.Frame):
         def __init__(self, parent):  # South Park
