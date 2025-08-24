@@ -135,3 +135,7 @@ drg_player_z = [0X30, 0X250, 0X38, 0X8, 0X80, 0X1D8]  # "FSD-Win64-Shipping.exe"
 #  Halo Wars 1
 hw_money = [0X90, 0X8, 0X110]  # "xgameFinal.exe"+014FA250
 hw_base_production_rate = [0X0, 0X8E8, 0X1C]  # "xgameFinal.exe"+01623CC0
+
+#  Fable Anniversary.exe
+fable_health = [0X6C, 0X44, 0X14, 0X44]  # "Fable Anniversary.exe"+0322FD00
+fable_magic = [0XC58, 0X4, 0X60]  # "Fable Anniversary.exe"+031BB0D0
