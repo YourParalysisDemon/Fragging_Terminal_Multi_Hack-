@@ -121,7 +121,7 @@ y_offsets_fallout = [0XDC4]  # 0X00E9E8D4
 x_offsets_fallout = [0XDC0]  # 0X00E9E8D4
 
 #  DRG_
-drg_gunner_ammo = [0X690, 0X50, 0X6A0]  # "FSD-Win64-Shipping.exe"+060481F0
+drg_gunner_ammo = [0X548, 0XC8, 0X8, 0X18, 0XB8, 0X20, 0X6A0]  # "FSD-Win64-Shipping.exe"+063414A8
 drg_gunner_firerate = []
 
 drg_player_shield = []
