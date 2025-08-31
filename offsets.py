@@ -121,12 +121,10 @@ y_offsets_fallout = [0XDC4]  # 0X00E9E8D4
 x_offsets_fallout = [0XDC0]  # 0X00E9E8D4
 
 #  DRG_
-drg_gunner_ammo = [0X548, 0XC8, 0X8, 0X18, 0XB8, 0X20, 0X6A0]  # "FSD-Win64-Shipping.exe"+063414A8
-drg_gunner_firerate = []
-
-drg_player_shield = []
-drg_player_health = []
-drg_player_gravity = []
+drg_z = [0X19B0, 0X0, 0X980, 0X1D8]  # "FSD-Win64-Shipping.exe"+06341090
+drg_y = [0X180, 0X20, 0X1D4]  # "FSD-Win64-Shipping.exe"+0649D220
+drg_x = [0X19B0, 0X0, 0X980, 0X1D0]  # "FSD-Win64-Shipping.exe"+06341090
+drg_heavy_ammo = [0X548, 0XC8, 0X8, 0X18, 0XB8, 0X20, 0X6A0]  # "FSD-Win64-Shipping.exe"+063414A8
 
 drg_player_x = []
 drg_player_y = []
