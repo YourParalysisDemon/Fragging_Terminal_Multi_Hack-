@@ -27,7 +27,8 @@ game_list = [Fore.RED + Back.BLACK + Style.BRIGHT + "Games Available",
              "● The binding of isaac",
              "● Spongebob CosmicShake",
              "● Metro 2033",
-             "● Company of Heroes"]
+             "● Company of Heroes",
+             "● Deep Rock Galactic"]
 
 for game_list in game_list:
     print(game_list)
@@ -82,6 +83,11 @@ while True:
     elif game == "Company of Heroes".casefold():
         mem = Pymem("RelicCOH")
         module = module_from_name(mem.process_handle, "WW2Mod.dll").lpBaseOfDll
+        print("Game Found!")
+        break
+    elif game == "Deep Rock Galactic":
+        mem = Pymem("FSD-Win64-Shipping.exe")
+        module_drg = module_from_name(mem.process_handle, "FSD-Win64-Shipping.exe").lpBaseOfDll
         print("Game Found!")
         break
     else:
