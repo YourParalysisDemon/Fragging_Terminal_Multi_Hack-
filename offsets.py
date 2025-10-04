@@ -68,13 +68,15 @@ Y_offsets = [0X18]  # 01C35950
 Z_offsets = [0X20]
 shield = [0X20, 0XB8, 0XC8, 0X998, 0X10, 0XA0]
 havoc_shield = []
+halo_ce_gravity = [0X9A0, 0X60]  # "halo1.dll"+02D9C828
+halo_trigger = [0XA0]  # "halo1.dll"+02EA33D8
 
 # Isaac // isaac-ng.exe
 bomb_offsets = [0X1C0, 0X0, 0X114, 0X8C, 0X4, 0X0, 0XB70]  # 0021E508
 bomb_timer_offsets = [0X134, 0X0, 0X114, 0X14, 0X0, 0X7C, 0X4, 0X0, 0XCE4]  # 0021E598
 isaac_health_offsets = [0X3DA4C, 0X1294]  # "isaac-ng.exe"+007FD65C
-isaac_fire_rate_offsets = [0X5CC, 0XB8, 0XCD0]  # 0021A1F4
-
+isaac_fire_rate_offsets = [0X3DA4C, 0X132C, 0X8]  # "isaac-ng.exe"+007FD65C
+isaac_items = [0X68, 0X123C, 0X0, 0X30]  # "THREADSTACK0"-000004C4
 #  spongebob cosmic shake
 spongebob_fly = [0X8, 0X8, 0X70, 0X9C]  # "CosmicShake-Win64-Shipping.exe"+057309F0
 
@@ -97,7 +99,6 @@ gas_offsets_coh = [0x0, 0x10, 0x30, 0x18, 0x268]
 ammo_offsets_coh = [0x0, 0x26C]
 cap_offsets_coh = [0x0, 0x4E8]
 command_offsets_coh = [0X0, 0X274]
-command_offsets = [0X0, 0X274]
 camera_1 = [0X314]  # "RelicCOH.exe"+00901EB8
 camera_2 = [0X318]  # "RelicCOH.exe"+00901EB8
 
@@ -107,6 +108,11 @@ health_offsets_south_park = [0x448, 0x110, 0x0, 0x0, 0x50, 0x438, 0x24]
 #  Risk of Rain 2
 risk_health = [0X460, 0X1A0]  # "mono-2.0-bdwgc.dll"+00770320
 risk_health2 = [0X0, 0X0, 0X0, 0X5C8, 0X70]  # 007701D0
+
+#  TF2
+health_tf2_offsets_1 = [0X90, 0X174]
+health_tf2_offsets_2 = [0X3C0, 0X90, 0X0, 0X1C0, 0X250, 0X174]  # "engine.dll"+00479848
+health_tf2_offsets_3 = [0X88, 0X18, 0XA8, 0X18, 0X68, 0X15C]  # "engine.dll"+0072FD18
 
 #  Halo ODST
 odst_primary_ammo = [0X232]  # "halo3odst.dll"+0109798C
@@ -120,20 +126,12 @@ z_offsets_fallout = [0XDC8]  # 0X00E9E8D4
 y_offsets_fallout = [0XDC4]  # 0X00E9E8D4
 x_offsets_fallout = [0XDC0]  # 0X00E9E8D4
 
-#  DRG_
+# DRG
 drg_z = [0X19B0, 0X0, 0X980, 0X1D8]  # "FSD-Win64-Shipping.exe"+06341090
 drg_y = [0X180, 0X20, 0X1D4]  # "FSD-Win64-Shipping.exe"+0649D220
 drg_x = [0X19B0, 0X0, 0X980, 0X1D0]  # "FSD-Win64-Shipping.exe"+06341090
 drg_heavy_ammo = [0X548, 0XC8, 0X8, 0X18, 0XB8, 0X20, 0X6A0]  # "FSD-Win64-Shipping.exe"+063414A8
 
-drg_player_x = []
-drg_player_y = []
-drg_player_z = [0X30, 0X250, 0X38, 0X8, 0X80, 0X1D8]  # "FSD-Win64-Shipping.exe"+0648B0A0
-
-#  Halo Wars 1
-hw_money = [0X90, 0X8, 0X110]  # "xgameFinal.exe"+014FA250
-hw_base_production_rate = [0X0, 0X8E8, 0X1C]  # "xgameFinal.exe"+01623CC0
-
-#  Fable Anniversary.exe
-fable_health = [0X6C, 0X44, 0X14, 0X44]  # "Fable Anniversary.exe"+0322FD00
-fable_magic = [0XC58, 0X4, 0X60]  # "Fable Anniversary.exe"+031BB0D0
+# Garfield Kart
+garfield_speed = [0XEA4, 0X1C, 0XCC]  # "mono.dll"+001F3944
+garfield_cash = [0X61C, 0X18, 0X1A0]  # "mono.dll"+001F10AC
