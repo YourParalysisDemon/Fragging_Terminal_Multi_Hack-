@@ -1,4 +1,5 @@
 import tkinter
+import PIL.Image
 import keyboard
 import psutil
 import os
@@ -15,16 +16,27 @@ from TF2 import *
 from company import *
 from spongebob import *
 from SouthPark import *
-
-
-def restart_program(self):
-    os.startfile("Pycho1.exe")
-    self.destroy()
+from deep_rock import *
 
 
 def display_func_output():
     output = multi_pycho2_stats()
     tk.Button.config(text=output)
+
+
+def restart_program():
+    while True:
+        restart = input(Fore.RED + Back.BLACK + Style.BRIGHT + "\nDo you want to restart? (yes/no): ")
+        if restart == "yes":
+            print("Restarting")
+            Pycho1()
+
+            break
+
+        else:
+            if restart == "No".casefold():
+                print("Okay")
+                break
 
 
 pygame.init()
@@ -44,7 +56,7 @@ def main_menu():
 
             self.options = ["Halo CE New", "Halo CE Old", "Psychonauts", "Psychonauts 2", "Bioshock infinite",
                             "The binding of isaac", "Spongebob CosmicShake", "Metro 2033", "DEV Page",
-                            "Company of Heroes", "South Park"]
+                            "Company of Heroes", "South Park", "Deep Rock Galactic", "Garfield Kart"]
             self.current_frame = None
 
             self.selected_option = tk.StringVar(value=self.options[0])
@@ -90,6 +102,10 @@ def main_menu():
                 self.current_frame = Frame10(self)
             elif selected_option == "South Park":
                 self.current_frame = Frame11(self)
+            elif selected_option == "Deep Rock Galactic":
+                self.current_frame = Frame12(self)
+            elif selected_option == "Garfield Kart":
+                self.current_frame = Frame13(self)
 
             self.current_frame.pack(fill="both", expand=True)
 
@@ -98,7 +114,7 @@ def main_menu():
             super().__init__(parent, background="black")
 
             button1 = tk.Button(self, text="Health", bg='black', fg='red', cursor="cross",
-                                command=multi_tf2)
+                                command=multi_run_new_health)
             button1.pack(pady=10)
 
             button2 = tk.Button(self, text="UNSC Fire rate", bg='black', fg='red', cursor="cross",
@@ -158,6 +174,13 @@ def main_menu():
 
             button5 = tk.Button(self, text="Pause NPC", bg='black', fg='red', cursor="cross", command=multi_run_ai)
             button5.pack(pady=10)
+
+            button6 = tk.Button(self, text="Fly", bg='black', fg='red', cursor="cross", command=multi_chief_flying)
+            button6.pack(pady=10)
+
+            button7 = tk.Button(self, text="Trigger Bot", bg='black', fg='red', cursor="cross",
+                                command=multi_chief_trigger)
+            button7.pack(pady=10)
 
     class Frame3(tk.Frame):
         # Psychonauts
@@ -265,8 +288,9 @@ def main_menu():
                                 cursor="cross", command=multi_isaac_health_set)
             button2.pack(pady=10)
 
-            # button3 = tk.Button(tab7, text="Bombs", bg='black', fg='red', cursor="cross", command=multi_isaac_bomb)
-            # button3.pack(pady=10)
+            button3 = tk.Button(self, text="Spawn Items", bg='black', fg='red',
+                                cursor="cross", command=multi_isaac_items)
+            button3.pack(pady=10)
 
             button4 = tk.Button(self, text="Fire rate", bg='black', fg='red', cursor="cross", command=multi_isaac_fire)
             button4.pack(pady=10)
@@ -370,6 +394,28 @@ def main_menu():
             button1 = tk.Button(self, text="Health", bg='black', fg='red', cursor="cross",
                                 command=southpark_multi_health)
             button1.pack(pady=10)
+
+    class Frame12(tk.Frame):
+        def __init__(self, parent):  # ROCK & STONE!!
+            super().__init__(parent, background="black")
+
+            button1 = tk.Button(self, text="Stats", bg='black', fg='red', cursor="cross",
+                                command=drg_stats)
+            button1.pack(pady=10)
+
+            button2 = tk.Button(self, text="Teleport", bg='black', fg='red', cursor="cross", command=drg_tele)
+            button2.pack(pady=10)
+
+    class Frame13(tk.Frame):
+        def __init__(self, parent):  # Garfield Kart
+            super().__init__(parent, background="black")
+
+            button1 = tk.Button(self, text="Cash", bg='black', fg='red', cursor="cross",
+                                command=garfield_rich)
+            button1.pack(pady=10)
+
+            button2 = tk.Button(self, text="Crack", bg='black', fg='red', cursor="cross", command=garfield_fast)
+            button2.pack(pady=10)
 
     if __name__ == "__main__":
         app = App()
