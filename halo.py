@@ -1,3 +1,5 @@
+import keyboard
+import pymem
 from main import *
 from offsets import *
 
@@ -23,6 +25,16 @@ def getpointeraddress(base, offsets):
 # Threads for Halo 1
 def multi_run_117():
     new_thread = Thread(target=John117, daemon=True)
+    new_thread.start()
+
+
+def multi_chief_flying():
+    new_thread = Thread(target=chief_fly, daemon=True)
+    new_thread.start()
+
+
+def multi_run_ai():
+    new_thread = Thread(target=dumb_ai, daemon=True)
     new_thread.start()
 
 
@@ -111,6 +123,11 @@ def multi_run_plasma_pistol():
     new_thread.start()
 
 
+def multi_chief_trigger():
+    new_thread = Thread(target=trigger_bot, daemon=True)
+    new_thread.start()
+
+
 # Halo 1 funcs
 
 
@@ -131,16 +148,16 @@ def John117():
 
 
 def new_health():
-    addr = getpointeraddress(module_halo + 0x01C35AB0, shield_offsets)
+    addr1 = getpointeraddress(module_halo + 0x01C35AB0, shield_offsets)
 
     while 1:
         try:
-            mem.write_int(addr, 0x47960000)
+            mem.write_int(addr1, 0x47960000)
         except pymem.exception.MemoryWriteError as e:
             print(f"Error writing memory: {e}")
             break
         if keyboard.is_pressed("F1"):
-            mem.write_int(addr, 0x3f800000)
+            mem.write_int(addr1, 0x3f800000)
             break
 
 
@@ -415,7 +432,61 @@ def plasma_pistol():
             break
 
 
-keyboard.add_hotkey("5", multi_run_117)
-keyboard.add_hotkey("6", multi_run_plasma)
-keyboard.add_hotkey("V", multi_run_clip)
+def pause_ai():
+    ai = 0X7FFC52E74FDC
+    addr1 = mem.read_int(module_halo + ai)
 
+    while 1:
+        try:
+            mem.write_int(addr1, 0xbb899090)
+        except pymem.exception.MemoryWriteError as e:
+            print(f"Error writing memory: {e}")
+        if keyboard.is_pressed("F1"):
+            mem.write_int(addr1, 0x1)
+            break
+
+
+def dumb_ai():
+    pm = pymem.Pymem("halo1.dll")
+    cov_ai = 0XC44AE6
+    dumb = 144
+
+    while 1:
+        try:
+            pm.write_int(cov_ai, dumb)
+        except pymem.exception.MemoryWriteError as e:
+            print(f"Error writing memory: {e}")
+            break
+
+
+def chief_fly():
+    addr = getpointeraddress(module_halo + 0x02D9C828, halo_ce_gravity)
+    while 1:
+        try:
+            mem.write_int(addr, 0x3d4ccccd)
+        except pymem.exception.MemoryWriteError as e:
+            print(f"Error writing memory: {e}")
+            break
+        if keyboard.is_pressed("C"):
+            break
+
+
+def trigger_bot():
+    addr = readpointeraddress(module_halo + 0X02EA33D8, halo_trigger)
+    while 1:
+        try:
+            trigger = mem.read_int(addr)
+            if trigger > 0:
+                try:
+                    keyboard.press_and_release("N")
+                finally:
+                    print("\r", "Target", end="", flush=True)
+        except pymem.exception.MemoryReadError as e:
+            print(f"Error reading memory: {e}")
+            break
+        if keyboard.is_pressed("F1"):
+            print("Trigger bot off")
+            break
+
+
+keyboard.add_hotkey("V", multi_run_clip)
