@@ -18,6 +18,24 @@ from tkinter import ttk
 from colorama import Fore, Back, Style
 from offsets import *
 
+
+while True:
+    try:
+        ask = input("\n Do you want to manually attach to the games memory? (yes/no): ")
+        if ask == "yes":
+            game_user_input = (input("\n Enter game name: "))
+            dll = (input("\n Enter game dll: "))
+            mem = Pymem(game_user_input)
+            module_user_input = module_from_name(mem.process_handle, dll).lpBaseOfDll
+            break
+        else:
+            if ask == "no":
+                print("Okay printing list of games supported below")
+                break
+    finally:
+        print("")
+
+
 colorama.init()
 game_list = [Fore.RED + Back.BLACK + Style.BRIGHT + "Games Available",
              "● Psychonauts",
@@ -28,66 +46,69 @@ game_list = [Fore.RED + Back.BLACK + Style.BRIGHT + "Games Available",
              "● Spongebob CosmicShake",
              "● Metro 2033",
              "● Company of Heroes",
-             "● Deep Rock Galactic"]
+             "● Deep Rock Galactic",
+             "● Garfield Kart"]
 
 for game_list in game_list:
     print(game_list)
 
 while True:
     game = input(Fore.RED + Back.BLACK + Style.BRIGHT + "\nEnter game title: ")
-    if game == "Psychonauts".casefold():
+    if game == "Psychonauts":
         mem = Pymem("Psychonauts")
         module1 = module_from_name(mem.process_handle, "Psychonauts.exe").lpBaseOfDll
         print("Game Found!")
         break
-    elif game == "Psychonauts 2".casefold():
+    elif game == "Psychonauts 2":
         mem = Pymem("Psychonauts2-Win64-Shipping")
         module_pycho2 = module_from_name(mem.process_handle, "Psychonauts2-Win64-Shipping.exe").lpBaseOfDll
         print("Game Found!")
         break
-    elif game == "Halo 1".casefold():
+    elif game == "Halo 1":
         mem = Pymem("MCC-Win64-Shipping")
         module_halo = module_from_name(mem.process_handle, "halo1.dll").lpBaseOfDll
         print("Game Found!")
         break
-    elif game == "Bioshock infinite".casefold():
+    elif game == "Bioshock infinite":
         mem = Pymem("BioShockInfinite.exe")
         module_bio = module_from_name(mem.process_handle, "BioShockInfinite.exe").lpBaseOfDll
         print("Game Found!")
         break
-    elif game == "The binding of isaac".casefold():
+    elif game == "The binding of isaac":
         mem = Pymem("isaac-ng")
         module_isaac = module_from_name(mem.process_handle, "isaac-ng.exe").lpBaseOfDll
+        module_isaac2 = module_from_name(mem.process_handle, "THREADSTACK0").lpBaseOfDll
         print("Game Found!")
         break
-    elif game == "TF2".casefold():  # Do not attach to a VAC secured server retard. Only run this code in -insecure mode.
-        mem = Pymem("tf_win64")
-        module_tf2 = module_from_name(mem.process_handle, "engine.dll").lpBaseOfDll
-        print("Game Found!")
-        break
-    elif game == "Spongebob CosmicShake".casefold():
+    elif game == "Spongebob CosmicShake":
         mem = Pymem("CosmicShake-Win64-Shipping.exe")
         module_sponge = module_from_name(mem.process_handle, "CosmicShake-Win64-Shipping.exe").lpBaseOfDll
         print("Game Found!")
         break
-    elif game == "Metro 2033".casefold():
+    elif game == "Metro 2033":
         mem = Pymem("metro")
         module_sponge = module_from_name(mem.process_handle, "metro.exe").lpBaseOfDll
         print("Game Found!")
         break
-    elif game == "Fallout 3".casefold():
+    elif game == "Fallout 3":
         mem = Pymem("Fallout3")
         module_fallout = module_from_name(mem.process_handle, "Fallout3.exe").lpBaseOfDll
         print("Game Found!")
         break
-    elif game == "Company of Heroes".casefold():
+    elif game == "Company of Heroes":
         mem = Pymem("RelicCOH")
-        module = module_from_name(mem.process_handle, "WW2Mod.dll").lpBaseOfDll
+        module_coh1 = module_from_name(mem.process_handle, "WW2Mod.dll").lpBaseOfDll
+        module_coh2 = module_from_name(mem.process_handle, "RelicCOH.exe").lpBaseOfDll
         print("Game Found!")
         break
     elif game == "Deep Rock Galactic":
         mem = Pymem("FSD-Win64-Shipping.exe")
         module_drg = module_from_name(mem.process_handle, "FSD-Win64-Shipping.exe").lpBaseOfDll
+        print("Game Found!")
+        break
+    elif game == "Garfield Kart":
+        mem = Pymem("GarfieldKartNoMulti")
+        module_garfield = module_from_name(mem.process_handle, "mono.dll").lpBaseOfDll
         print("Game Found!")
         break
     else:
