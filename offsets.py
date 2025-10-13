@@ -57,6 +57,9 @@ bullet_spread_offsets_2 = [0X1F]  # 01C38880/0x434800c8
 scared = [0X34]  # 01C40480
 pause = [0X38]  # 01C40480
 animation = [0x0]  # 02D9CD90
+player_view_angle_x = [0X1C]  # "halo1.dll"+02D8FE70
+player_view_angle_y = [0X20]  # "halo1.dll"+02D8FE70
+npc_retardation = [0X3E]  # "halo1.dll"+02A06E68
 
 # Old graphics this game is janky as fuck Halo 1
 primary_offsets2 = [0X28A]  # 01C38900
