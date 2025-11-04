@@ -125,9 +125,12 @@ odst_z = [0X58]  # "halo3odst.dll"+0109795C
 odst_player_size = [0X8C]  # "halo3odst.dll"+0109795C
 
 # Fallout 3
-z_offsets_fallout = [0XDC8]  # 0X00E9E8D4
+primary_ammo_fallout = [0X60, 0X118, 0X4]  # "Fallout3.exe"+00E3C674
+z_offsets_fallout = [0X48, 0XA4, 0X90, 0XD8]  # "Fallout3.exe"+008E3160
 y_offsets_fallout = [0XDC4]  # 0X00E9E8D4
 x_offsets_fallout = [0XDC0]  # 0X00E9E8D4
+trigger_bot_fallout = [0X0]  # "Fallout3.exe"+00530AD4
+fire_gun_fallout = [0XBBC]  # "Fallout3.exe"+00459708
 
 # DRG
 drg_z = [0X19B0, 0X0, 0X980, 0X1D8]  # "FSD-Win64-Shipping.exe"+06341090
@@ -138,3 +141,11 @@ drg_heavy_ammo = [0X548, 0XC8, 0X8, 0X18, 0XB8, 0X20, 0X6A0]  # "FSD-Win64-Shipp
 # Garfield Kart
 garfield_speed = [0XEA4, 0X1C, 0XCC]  # "mono.dll"+001F3944
 garfield_cash = [0X61C, 0X18, 0X1A0]  # "mono.dll"+001F10AC
+
+# L4D2
+l4d2_trigger = [0X0, 0X18]  # "engine.dll"+006B3110
+
+# Lost Planet
+Lost_planet_triggerbot_offset = [0XF0, 0X394]  # "LostPlanetDX9.exe"+008ADD28
+Lost_planet_m1_fire = [0XF68, 0X900, 0X8D8, 0X15C, 0XDAC]  # "LostPlanetDX9.exe"+002A3D68
+
