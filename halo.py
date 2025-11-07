@@ -128,6 +128,10 @@ def multi_chief_trigger():
     new_thread.start()
 
 
+def multi_npc_pathing():
+    new_thread = Thread(target=fuck_npc_pathing, daemon=True)
+    new_thread.start()
+
 # Halo 1 funcs
 
 
@@ -342,6 +346,19 @@ def haha_number_go_brrr():
             break
 
 
+def fuck_npc_pathing():
+    addr1 = getpointeraddress(module_halo + 0X02A06E68, halo_npc_movement)
+    while 1:
+        try:
+            mem.write_int(addr1, 0)
+        except pymem.exception.MemoryWriteError as e:
+            print(f"Error writing memory: {e}")
+            break
+        if keyboard.is_pressed("F1"):
+            mem.write_int(addr1, 4)
+            break
+
+
 def hands():
     addr1 = getpointeraddress(module_halo + 0x01C35AB0, melee1_offsets)
     addr2 = getpointeraddress(module_halo + 0x01C35AB0, melee2_offsets)
@@ -473,19 +490,25 @@ def chief_fly():
 
 def trigger_bot():
     addr = readpointeraddress(module_halo + 0X02EA33D8, halo_trigger)
+    addr2 = (module_halo2 + 0X400C0E0)  # Fire gun/ stop firing gun
     while 1:
         try:
             trigger = mem.read_int(addr)
             if trigger > 0:
                 try:
-                    keyboard.press_and_release("N")
+                    mem.write_int(addr2, 1)
                 finally:
                     print("\r", "Target", end="", flush=True)
+            if trigger == 0:
+                try:
+                    mem.write_int(addr2, 0)
+                finally:
+                    print("\r", "No Target", end="", flush=True)
         except pymem.exception.MemoryReadError as e:
             print(f"Error reading memory: {e}")
             break
         if keyboard.is_pressed("F1"):
-            print("Trigger bot off")
+            print("\r", "Trigger bot off", end="", flush=True)
             break
 
 
