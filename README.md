@@ -12,6 +12,7 @@
 + South Park tfbw
 + Risk of rain 2 (Update broke it)
 + Garfield Kart
++ Fallout 3
 
 
 ![Screenshot (908)](https://github.com/user-attachments/assets/db0767b9-b167-4eb5-83ad-e09c5c7511f7)
