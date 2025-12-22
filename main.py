@@ -1,12 +1,9 @@
-import keyboard
 import os
 import sys
-import tkinter as tk
-import pygame
 import time
 import pymem.exception
-import webbrowser
 import colorama
+import keyboard
 from threading import Thread
 from pymem import *
 from pymem.process import *
@@ -14,27 +11,7 @@ from pymem.ptypes import RemotePointer
 from ReadWriteMemory import ReadWriteMemory
 from time import sleep
 from time import *
-from tkinter import ttk
 from colorama import Fore, Back, Style
-from offsets import *
-
-
-while True:
-    try:
-        ask = input("\n Do you want to manually attach to the games memory? (yes/no): ")
-        if ask == "yes":
-            game_user_input = (input("\n Enter game name: "))
-            dll = (input("\n Enter game dll: "))
-            mem = Pymem(game_user_input)
-            module_user_input = module_from_name(mem.process_handle, dll).lpBaseOfDll
-            break
-        else:
-            if ask == "no":
-                print("Okay printing list of games supported below")
-                break
-    finally:
-        print("")
-
 
 colorama.init()
 game_list = [Fore.RED + Back.BLACK + Style.BRIGHT + "Games Available",
@@ -47,7 +24,9 @@ game_list = [Fore.RED + Back.BLACK + Style.BRIGHT + "Games Available",
              "● Metro 2033",
              "● Company of Heroes",
              "● Deep Rock Galactic",
-             "● Garfield Kart"]
+             "● Garfield Kart",
+             "● L4D2",
+             "● Fallout 3"]
 
 for game_list in game_list:
     print(game_list)
@@ -109,6 +88,12 @@ while True:
     elif game == "Garfield Kart":
         mem = Pymem("GarfieldKartNoMulti")
         module_garfield = module_from_name(mem.process_handle, "mono.dll").lpBaseOfDll
+        print("Game Found!")
+        break
+    elif game == "L4D2":
+        mem = Pymem("left4dead2")
+        module_l4d2_client = module_from_name(mem.process_handle, "client.dll").lpBaseOfDll
+        module_l4d2_engine = module_from_name(mem.process_handle, "engine.dll").lpBaseOfDll
         print("Game Found!")
         break
     else:
