@@ -1,47 +1,17 @@
-import tkinter
-import PIL.Image
-import keyboard
-import psutil
-import os
-from tqdm import tqdm
-import main
-import importlib.util
-from Psychonauts_1 import *
-from Psychonauts_2 import *
-from halo import *
-from Metro import *
-from Bioshock_infinite import *
-from isaac import *
-from TF2 import *
+import tkinter as tk
+import webbrowser
+from tkinter import ttk
+from bioshock_infinite import *
 from company import *
+from halo import *
+from isaac import *
+from metro import *
+from psychonauts_1 import *
+from psychonauts_2 import *
+from southpark import *
 from spongebob import *
-from SouthPark import *
-from deep_rock import *
-
-
-def display_func_output():
-    output = multi_pycho2_stats()
-    tk.Button.config(text=output)
-
-
-def restart_program():
-    while True:
-        restart = input(Fore.RED + Back.BLACK + Style.BRIGHT + "\nDo you want to restart? (yes/no): ")
-        if restart == "yes":
-            print("Restarting")
-            Pycho1()
-
-            break
-
-        else:
-            if restart == "No".casefold():
-                print("Okay")
-                break
-
-
-pygame.init()
-pygame.mixer_music.load("music/mod.mp3")
-pygame.mixer_music.play(1)
+from l4d2 import *
+from fallout_3 import *
 
 
 def main_menu():
@@ -56,7 +26,8 @@ def main_menu():
 
             self.options = ["Halo CE New", "Halo CE Old", "Psychonauts", "Psychonauts 2", "Bioshock infinite",
                             "The binding of isaac", "Spongebob CosmicShake", "Metro 2033", "DEV Page",
-                            "Company of Heroes", "South Park", "Deep Rock Galactic", "Garfield Kart"]
+                            "Company of Heroes", "South Park", "Deep Rock Galactic", "Garfield Kart",
+                            "L4D2", "Fallout 3"]
             self.current_frame = None
 
             self.selected_option = tk.StringVar(value=self.options[0])
@@ -74,7 +45,6 @@ def main_menu():
 
         keyboard.add_hotkey("-", show)
         keyboard.add_hotkey("+", hide)
-        keyboard.add_hotkey("k", restart_program)
 
         def switch_frame(self, selected_option):
             if self.current_frame is not None:
@@ -102,10 +72,12 @@ def main_menu():
                 self.current_frame = Frame10(self)
             elif selected_option == "South Park":
                 self.current_frame = Frame11(self)
-            elif selected_option == "Deep Rock Galactic":
-                self.current_frame = Frame12(self)
             elif selected_option == "Garfield Kart":
+                self.current_frame = Frame12(self)
+            elif selected_option == "L4D2":
                 self.current_frame = Frame13(self)
+            elif selected_option == "Fallout 3":
+                self.current_frame = Frame14(self)
 
             self.current_frame.pack(fill="both", expand=True)
 
@@ -223,10 +195,10 @@ def main_menu():
 
             button9.pack(pady=10)
 
-            button10 = tk.Button(self, text="Teleport", bg='black', fg='red', cursor="cross",
-                                 command=multi_run_raz_tele)
+            #  button10 = tk.Button(self, text="Teleport", bg='black', fg='red', cursor="cross",
+            #  command=multi_run_raz_tele)
 
-            button10.pack(pady=10)
+            #  button10.pack(pady=10)
 
     class Frame4(tk.Frame):
         def __init__(self, parent):  # Psychonauts 2
@@ -254,14 +226,6 @@ def main_menu():
                                 command=multi_run_flip)
             button6.pack(pady=10)
 
-            button7 = tk.Button(self, text="Stats", bg='black', fg='red', cursor="cross",
-                                command=pycho2_stats)
-            button7.pack(pady=10)
-
-            button8 = tk.Button(self, text="Restart exe", bg='black', fg='red', cursor="cross",
-                                command=restart_program)
-            button8.pack(pady=10)
-
     class Frame5(tk.Frame):
         def __init__(self, parent):  # Bioshock infinite
             super().__init__(parent, background="black")
@@ -288,12 +252,8 @@ def main_menu():
                                 cursor="cross", command=multi_isaac_health_set)
             button2.pack(pady=10)
 
-            button3 = tk.Button(self, text="Spawn Items", bg='black', fg='red',
-                                cursor="cross", command=multi_isaac_items)
+            button3 = tk.Button(self, text="Fire rate", bg='black', fg='red', cursor="cross", command=multi_isaac_fire)
             button3.pack(pady=10)
-
-            button4 = tk.Button(self, text="Fire rate", bg='black', fg='red', cursor="cross", command=multi_isaac_fire)
-            button4.pack(pady=10)
 
     class Frame7(tk.Frame):
         def __init__(self, parent):  # Spongebob CosmicShake
@@ -325,10 +285,6 @@ def main_menu():
             button5 = tk.Button(self, text="FLY Dead city", bg='black', fg='red', cursor="cross",
                                 command=multi_run_zd)
             button5.pack(pady=10)
-
-            button6 = tk.Button(self, text="Restart exe", bg='black', fg='red', cursor="cross",
-                                command=restart_program)
-            button6.pack(pady=10)
 
     class Frame9(tk.Frame):  # DEV
         def __init__(self, parent):
@@ -383,10 +339,6 @@ def main_menu():
                                 command=multi_run_pop_coh)
             button4.pack(pady=10)
 
-            button5 = tk.Button(self, text="Zoom", bg='black', fg='red', cursor="cross",
-                                command=multi_run_zoom_coh)
-            button5.pack(pady=10)
-
     class Frame11(tk.Frame):
         def __init__(self, parent):  # South Park
             super().__init__(parent, background="black")
@@ -396,17 +348,6 @@ def main_menu():
             button1.pack(pady=10)
 
     class Frame12(tk.Frame):
-        def __init__(self, parent):  # ROCK & STONE!!
-            super().__init__(parent, background="black")
-
-            button1 = tk.Button(self, text="Stats", bg='black', fg='red', cursor="cross",
-                                command=drg_stats)
-            button1.pack(pady=10)
-
-            button2 = tk.Button(self, text="Teleport", bg='black', fg='red', cursor="cross", command=drg_tele)
-            button2.pack(pady=10)
-
-    class Frame13(tk.Frame):
         def __init__(self, parent):  # Garfield Kart
             super().__init__(parent, background="black")
 
@@ -417,6 +358,26 @@ def main_menu():
             button2 = tk.Button(self, text="Crack", bg='black', fg='red', cursor="cross", command=garfield_fast)
             button2.pack(pady=10)
 
+    class Frame13(tk.Frame):
+        def __init__(self, parent):  # l4d2
+            super().__init__(parent, background="black")
+
+            button1 = tk.Button(self, text="Bhop", bg='black', fg='red', cursor="cross",
+                                command=l4d2_bhop_thread)
+            button1.pack(pady=10)
+
+            button2 = tk.Button(self, text="Trigger_bot", bg='black', fg='red', cursor="cross",
+                                command=l4d2_trigger_bot_thread)
+            button2.pack(pady=10)
+
+    class Frame14(tk.Frame):
+        def __init__(self, parent):  # Fallout 3
+            super().__init__(parent, background="black")
+
+            button1 = tk.Button(self, text="Bullet Teleportation", bg='black', fg='red', cursor="cross",
+                                command=fallout_bullet_tele_thread)
+            button1.pack(pady=10)
+
     if __name__ == "__main__":
         app = App()
         app.mainloop()
@@ -424,11 +385,11 @@ def main_menu():
 
 while True:
     menu = input(Fore.RED + Back.BLACK + Style.BRIGHT + "\nLaunch GUI?: ")
-    if menu == "Yes".casefold():
+    if menu == "yes":
         print("Launching GUI!")
         main_menu()
         break
 
     else:
-        if menu == "No".casefold():
+        if menu == "no":
             break
