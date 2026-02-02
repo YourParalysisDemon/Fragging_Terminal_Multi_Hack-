@@ -161,5 +161,3 @@ Lost_planet_m1_fire = [0XF68, 0X900, 0X8D8, 0X15C, 0XDAC]  # "LostPlanetDX9.exe"
 # L4D2
 l4d2_in_air = [0X648, 0XD4, 0XF0C]  # "client.dll"+
 l4d2_trigger = [0X887, -0XFED, -0XFCD, -0XAEC]  # "client.dll"+00627D04
-
-
