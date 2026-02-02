@@ -6,7 +6,7 @@ run_offsets = [0X4, 0X708]
 no_clip_offsets = [0X0, 0X170]  # 0x00386AE0
 walk_offsets = [0X120]  # 003839D8
 z_offsets = [0X10, 0X44]  # 0x003839D8
-y_offsets = [0X0, 0X40]  # 0x00386AE0
+y_offsewts = [0X0, 0X40]  # 0x00386AE0
 x_offsets = [0X10, 0X48]  # 0x003839D8
 raz_lives = [0X58, 0XF4, 0X0, 0X310, 0X0, 0X28C]  # 0038CBB8
 player_size_1 = [0XA8, 0X1B8]  # 003839D8
@@ -16,6 +16,14 @@ roof_walker = [0X0, 0XF0]  # 00386AE0
 raz_skin_color_1 = [0XA8, 0X1BC]  # 003839D8
 raz_skin_color_2 = [0X4, 0X6F4]  # 00383838
 raz_skin_color_3 = [0X4, 0X6F0]  # 00383838
+texture_transparency = [0X1C8]  # "Psychonauts.exe"+00382F84
+texture_spin = "Psychonauts.exe"+00783518
+texture_light = "Psychonauts.exe"+007834AC
+texture_outline = "Psychonauts.exe"+007834F8
+texture_color1 = "Psychonauts.exe"+00783494
+texture_color2 = "Psychonauts.exe"+00783490
+texture_color3 = "Psychonauts.exe"+0078348C
+attack_speed = [0XA8, 0X1D4]  # "Psychonauts.exe"+003839D8
 
 # Pycho 2 offsets
 laser_offsets = [0x8, 0x8, 0x270, 0xE0, 0x8, 0x104]
