@@ -3,6 +3,8 @@ import pymem
 from main import *
 from offsets import *
 
+entity_list = module_l4d2_server + 0X007E0774
+
 
 def readpointeraddress(base, offsets):
     remote_pointer = RemotePointer(mem.process_handle, base)
@@ -21,6 +23,34 @@ def getpointeraddress(base, offsets):
         else:
             return remote_pointer.value + offset
 
+
+def get_health(offset):
+    try:
+        return mem.read_int(readpointeraddress(entity_list + offset, [0xEC]))
+    except:
+        return 0
+
+
+def get_x(offset):
+    try:
+        return mem.read_float(readpointeraddress(entity_list + offset, [0x388]))
+    except:
+        return None
+
+
+def get_y(offset):
+    try:
+        return mem.read_float(readpointeraddress(entity_list + offset, [0x384]))
+    except:
+        return None
+
+
+def get_z(offset):
+    try:
+        return mem.read_float(readpointeraddress(entity_list + offset, [0x384]))
+    except:
+        return None
+        
 
 def l4d2_bhop_thread():
     new_thread = Thread(target=l4d2_bhop, daemon=True)
